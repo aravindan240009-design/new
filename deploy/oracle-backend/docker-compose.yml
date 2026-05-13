@@ -1,8 +1,8 @@
 services:
   hostel-backend:
     build:
-      context: ../../backend
-      dockerfile: Dockerfile
+      context: ../..
+      dockerfile: backend/Dockerfile
     container_name: hostel-backend
     env_file:
       - .env

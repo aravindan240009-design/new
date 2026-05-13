@@ -143,8 +143,8 @@ jdbc:postgresql://HOST:5432/postgres
 
 1. Push this repository to GitHub.
 2. Create a new Render Web Service.
-3. Select the `backend` folder as the root directory if Render asks for a root.
-4. Use Docker deployment. The included `backend/Dockerfile` builds and runs the Spring Boot jar.
+3. Leave root directory as the repository root.
+4. Use Docker deployment with Dockerfile path `backend/Dockerfile`.
 5. Add environment variables:
 
 ```text
