@@ -1,0 +1,29 @@
+services:
+  hostel-backend:
+    build:
+      context: ../../backend
+      dockerfile: Dockerfile
+    container_name: hostel-backend
+    env_file:
+      - .env
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+
+  caddy:
+    image: caddy:2.8
+    container_name: hostel-caddy
+    restart: unless-stopped
+    depends_on:
+      - hostel-backend
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:

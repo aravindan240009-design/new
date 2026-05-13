@@ -1,0 +1,1 @@
+-- Default admin is seeded safely by application startup code only when no admin exists.

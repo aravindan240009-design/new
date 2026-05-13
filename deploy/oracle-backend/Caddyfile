@@ -1,0 +1,5 @@
+# Replace api.your-domain.com with your domain after pointing DNS to the Oracle VM public IP.
+# If you do not have a domain, remove the caddy service from docker-compose.yml and use http://YOUR_VM_IP:8080.
+api.your-domain.com {
+  reverse_proxy hostel-backend:8080
+}
