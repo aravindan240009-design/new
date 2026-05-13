@@ -54,7 +54,20 @@ export default function StudentApplicationForm() {
       <Navbar />
       <main className="mx-auto max-w-5xl px-4 py-6 sm:py-8">
         <Link to="/" className="mb-5 inline-flex items-center gap-2 text-sm font-semibold text-royal"><ArrowLeft className="h-4 w-4" />Back to home</Link>
-        <form onSubmit={handleSubmit(onSubmit)} className="panel p-5 sm:p-6 md:p-8">
+        <form onSubmit={handleSubmit(onSubmit)} className="panel relative overflow-hidden p-5 sm:p-6 md:p-8">
+          {loading && (
+            <div className="absolute inset-0 z-20 flex items-center justify-center bg-white/85 px-4 backdrop-blur-sm">
+              <div className="w-full max-w-sm rounded-lg border border-blue-100 bg-white p-6 text-center shadow-[0_24px_80px_rgba(15,37,68,0.18)]">
+                <div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-blue-100 border-t-royal" />
+                <h2 className="mt-5 text-lg font-bold text-navy">Saving your details</h2>
+                <p className="mt-2 text-sm leading-6 text-slate-600">Please wait. Do not close this page or edit the form while your record is being saved.</p>
+                <div className="mt-5 h-2 overflow-hidden rounded-full bg-blue-50">
+                  <div className="saving-progress h-full w-1/2 rounded-full bg-royal" />
+                </div>
+              </div>
+            </div>
+          )}
+          <fieldset disabled={loading} className={loading ? 'pointer-events-none select-none opacity-60' : ''}>
           <div className="mb-8">
             <p className="text-sm font-bold uppercase tracking-wide text-royal">Hostel Office Record</p>
             <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">Hostel Joining Form</h1>
@@ -62,8 +75,9 @@ export default function StudentApplicationForm() {
           </div>
           <ApplicationFormFields register={register} errors={errors} />
           <div className="mt-8 flex justify-end">
-            <button className="btn-primary w-full sm:w-auto" disabled={loading}><Send className="h-4 w-4" />{loading ? 'Saving details...' : 'Save Joining Details'}</button>
+            <button className="btn-primary w-full sm:w-auto" disabled={loading}><Send className="h-4 w-4" />{loading ? 'Saving...' : 'Save Details'}</button>
           </div>
+          </fieldset>
         </form>
       </main>
     </div>
