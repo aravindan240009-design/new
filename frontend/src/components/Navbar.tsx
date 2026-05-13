@@ -18,7 +18,7 @@ export default function Navbar() {
         {isAuthenticated() ? (
           <button className="btn-secondary" onClick={logout}><LogOut className="h-4 w-4" />Logout</button>
         ) : (
-          <Link className="btn-secondary" to="/admin/login">Admin Login</Link>
+          <Link className="text-sm font-semibold text-slate-500 hover:text-royal" to="/admin/login">Staff Login</Link>
         )}
       </div>
     </header>

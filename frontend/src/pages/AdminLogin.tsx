@@ -20,8 +20,11 @@ export default function AdminLogin() {
       saveToken(response.token);
       toast.success('Welcome back');
       navigate('/admin/dashboard');
-    } catch {
-      toast.error('Invalid username or password');
+    } catch (error: any) {
+      const message = error.code === 'ERR_NETWORK'
+        ? 'Backend is not running. Start the Spring Boot server on port 8080.'
+        : error.response?.data?.message || 'Invalid username or password';
+      toast.error(message);
     } finally {
       setLoading(false);
     }
@@ -33,8 +36,8 @@ export default function AdminLogin() {
       <main className="mx-auto flex max-w-md items-center justify-center px-4 py-16">
         <form onSubmit={submit} className="panel w-full p-8">
           <LockKeyhole className="h-10 w-10 text-royal" />
-          <h1 className="mt-4 text-2xl font-bold text-navy">Admin Login</h1>
-          <p className="mt-2 text-sm text-slate-600">Sign in to manage hostel applications.</p>
+          <h1 className="mt-4 text-2xl font-bold text-navy">Staff Login</h1>
+          <p className="mt-2 text-sm text-slate-600">For hostel office staff to view saved joining details.</p>
           <div className="mt-6 space-y-4">
             <div>
               <label htmlFor="username">Username</label>
@@ -46,6 +49,7 @@ export default function AdminLogin() {
             </div>
           </div>
           <button className="btn-primary mt-6 w-full" disabled={loading}>{loading ? 'Signing in...' : 'Login'}</button>
+          <p className="mt-3 rounded-md bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-500">Default local login: admin / admin123. Backend must be running.</p>
           <Link to="/" className="mt-4 block text-center text-sm font-semibold text-royal">Back to home</Link>
         </form>
       </main>
