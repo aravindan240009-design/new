@@ -85,7 +85,9 @@ export default function LandingPage() {
                       </div>
                     ))}
                   </div>
-                  <div className="ml-auto h-11 w-full rounded-md bg-royal shadow-[0_12px_30px_rgba(37,99,235,0.28)] transition group-hover:bg-blue-700 sm:w-36" />
+                  <div className="ml-auto flex h-11 w-full items-center justify-center rounded-md bg-royal text-sm font-bold text-white shadow-[0_12px_30px_rgba(37,99,235,0.28)] transition group-hover:bg-blue-700 sm:w-40">
+                    Submit Details
+                  </div>
                 </div>
               </div>
             </div>
