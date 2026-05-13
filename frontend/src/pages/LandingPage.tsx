@@ -33,31 +33,32 @@ export default function LandingPage() {
               Fill Hostel Form
             </Link>
           </div>
-          <div className="hidden lg:block">
-            <div className="record-card-float group relative rounded-xl border border-white/15 bg-white/10 p-5 shadow-[0_35px_95px_rgba(0,0,0,0.28)] backdrop-blur transition duration-500 hover:-translate-y-2 hover:bg-white/14 hover:shadow-[0_45px_120px_rgba(0,0,0,0.34)]">
+          <div className="mx-auto w-full max-w-[560px] lg:mx-0 lg:justify-self-end">
+            <div className="record-card-float group relative rounded-2xl border border-white/15 bg-[linear-gradient(145deg,rgba(255,255,255,0.18),rgba(255,255,255,0.07))] p-3 shadow-[0_38px_105px_rgba(0,0,0,0.30)] backdrop-blur transition duration-500 hover:-translate-y-2 hover:bg-white/14 hover:shadow-[0_45px_120px_rgba(0,0,0,0.34)] sm:p-5">
               <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl">
                 <div className="record-card-shine absolute inset-y-0 -left-2/3 w-1/2 bg-gradient-to-r from-transparent via-white/18 to-transparent" />
               </div>
-              <div className="relative overflow-hidden rounded-lg bg-white p-6 text-navy shadow-[0_22px_65px_rgba(0,0,0,0.20)] transition duration-500 group-hover:shadow-[0_30px_80px_rgba(0,0,0,0.26)]">
-                <div className="mb-6 flex items-center justify-between border-b border-slate-200 pb-4">
+              <div className="relative overflow-hidden rounded-xl bg-white text-navy shadow-[0_22px_65px_rgba(0,0,0,0.20)] transition duration-500 group-hover:shadow-[0_30px_80px_rgba(0,0,0,0.26)]">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-royal via-blue-400 to-navy" />
+                <div className="flex items-center justify-between border-b border-slate-200 px-5 pb-4 pt-6 sm:px-6">
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wide text-royal">Digital Record</p>
-                    <p className="mt-1 text-2xl font-bold">Joining Details</p>
+                    <p className="mt-1 text-xl font-bold sm:text-2xl">Joining Details</p>
                   </div>
                   <span className="rounded-md bg-blue-50 px-3 py-1 text-xs font-bold text-royal ring-1 ring-blue-100">Secure</span>
                 </div>
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4 p-5 sm:p-6">
+                  <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
                     <PreviewField label="Student name" width="w-4/5" />
                     <PreviewField label="Register no" width="w-3/4" />
                   </div>
                   <PreviewField label="Course and joining date" width="w-2/3" />
-                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 shadow-inner">
                     <div className="mb-3 flex items-center justify-between">
                       <span className="text-xs font-bold uppercase tracking-wide text-slate-400">Record sections</span>
                       <span className="text-xs font-bold text-royal">4 steps</span>
                     </div>
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid gap-3 sm:grid-cols-2">
                       {['Student', 'Parent', 'Address', 'Guardian'].map((item, index) => (
                         <div key={item} className="rounded-md bg-white px-3 py-3 shadow-sm transition duration-300 group-hover:-translate-y-0.5">
                           <div className="flex items-center gap-3">
@@ -68,16 +69,23 @@ export default function LandingPage() {
                       ))}
                     </div>
                   </div>
-                  <div className="flex items-center justify-between rounded-lg bg-navy p-4 text-white">
+                  <div className="flex items-center justify-between rounded-lg bg-navy p-4 text-white shadow-[0_16px_36px_rgba(15,37,68,0.18)]">
                     <div>
                       <p className="text-xs font-bold uppercase tracking-wide text-blue-100">Submission state</p>
-                      <p className="mt-1 text-lg font-bold">Ready for office records</p>
+                      <p className="mt-1 text-base font-bold sm:text-lg">Ready for office records</p>
                     </div>
                     <div className="h-3 w-24 overflow-hidden rounded-full bg-white/15">
                       <div className="record-progress h-full rounded-full bg-blue-300" />
                     </div>
                   </div>
-                  <div className="ml-auto h-11 w-36 rounded-md bg-royal shadow-[0_12px_30px_rgba(37,99,235,0.28)] transition group-hover:bg-blue-700" />
+                  <div className="grid grid-cols-3 gap-2">
+                    {['Validated', 'Stored', 'Traceable'].map((item) => (
+                      <div key={item} className="rounded-md border border-slate-200 bg-white px-3 py-2 text-center text-xs font-bold text-slate-600 shadow-sm">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="ml-auto h-11 w-full rounded-md bg-royal shadow-[0_12px_30px_rgba(37,99,235,0.28)] transition group-hover:bg-blue-700 sm:w-36" />
                 </div>
               </div>
             </div>
