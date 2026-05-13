@@ -52,17 +52,17 @@ export default function StudentApplicationForm() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navbar />
-      <main className="mx-auto max-w-5xl px-4 py-8">
-        <Link to="/" className="mb-5 inline-flex items-center gap-2 text-sm font-semibold text-royal"><ArrowLeft className="h-4 w-4" />Back</Link>
-        <form onSubmit={handleSubmit(onSubmit)} className="panel p-6 md:p-8">
+      <main className="mx-auto max-w-5xl px-4 py-6 sm:py-8">
+        <Link to="/" className="mb-5 inline-flex items-center gap-2 text-sm font-semibold text-royal"><ArrowLeft className="h-4 w-4" />Back to home</Link>
+        <form onSubmit={handleSubmit(onSubmit)} className="panel p-5 sm:p-6 md:p-8">
           <div className="mb-8">
-            <p className="text-sm font-bold uppercase tracking-wide text-royal">Student Application</p>
-            <h1 className="mt-2 text-3xl font-bold text-navy">Hostel Joining Form</h1>
-            <p className="mt-2 text-sm text-slate-600">Fill every required field carefully. The warden office will review your submission.</p>
+            <p className="text-sm font-bold uppercase tracking-wide text-royal">Hostel Office Record</p>
+            <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">Hostel Joining Form</h1>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Fill every required field carefully. Your details will be saved for hostel office records.</p>
           </div>
           <ApplicationFormFields register={register} errors={errors} />
           <div className="mt-8 flex justify-end">
-            <button className="btn-primary" disabled={loading}><Send className="h-4 w-4" />{loading ? 'Submitting...' : 'Submit Application'}</button>
+            <button className="btn-primary w-full sm:w-auto" disabled={loading}><Send className="h-4 w-4" />{loading ? 'Saving details...' : 'Save Joining Details'}</button>
           </div>
         </form>
       </main>

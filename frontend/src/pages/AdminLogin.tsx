@@ -1,9 +1,8 @@
-import { LockKeyhole } from 'lucide-react';
+import { Building2, LockKeyhole } from 'lucide-react';
 import { FormEvent, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../api/authApi';
-import Navbar from '../components/Navbar';
 import { saveToken } from '../utils/auth';
 
 export default function AdminLogin() {
@@ -32,12 +31,17 @@ export default function AdminLogin() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <Navbar />
-      <main className="mx-auto flex max-w-md items-center justify-center px-4 py-16">
-        <form onSubmit={submit} className="panel w-full p-8">
-          <LockKeyhole className="h-10 w-10 text-royal" />
+      <main className="mx-auto flex min-h-screen max-w-md items-center justify-center px-4 py-10">
+        <form onSubmit={submit} className="panel w-full p-6 sm:p-8">
+          <Link to="/" className="mb-6 flex items-center gap-3 font-bold text-navy">
+            <Building2 className="h-7 w-7 text-royal" />
+            <span>Hostel Joining System</span>
+          </Link>
+          <div className="flex h-12 w-12 items-center justify-center rounded-md bg-blue-50 text-royal">
+            <LockKeyhole className="h-6 w-6" />
+          </div>
           <h1 className="mt-4 text-2xl font-bold text-navy">Staff Login</h1>
-          <p className="mt-2 text-sm text-slate-600">For hostel office staff to view saved joining details.</p>
+          <p className="mt-2 text-sm leading-6 text-slate-600">For hostel office staff to view saved joining details.</p>
           <div className="mt-6 space-y-4">
             <div>
               <label htmlFor="username">Username</label>
