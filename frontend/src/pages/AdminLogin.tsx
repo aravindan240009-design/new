@@ -1,4 +1,3 @@
-import { Building2, LockKeyhole } from 'lucide-react';
 import { FormEvent, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
@@ -30,17 +29,11 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-[linear-gradient(135deg,#f8fafc_0%,#eef4fb_100%)]">
       <main className="mx-auto flex min-h-screen max-w-md items-center justify-center px-4 py-10">
-        <form onSubmit={submit} className="panel w-full p-6 sm:p-8">
-          <Link to="/" className="mb-6 flex items-center gap-3 font-bold text-navy">
-            <Building2 className="h-7 w-7 text-royal" />
-            <span>Hostel Joining System</span>
-          </Link>
-          <div className="flex h-12 w-12 items-center justify-center rounded-md bg-blue-50 text-royal">
-            <LockKeyhole className="h-6 w-6" />
-          </div>
-          <h1 className="mt-4 text-2xl font-bold text-navy">Staff Login</h1>
+        <form onSubmit={submit} className="w-full rounded-lg border border-slate-200 bg-white p-6 shadow-[0_24px_80px_rgba(15,37,68,0.14)] sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-wide text-royal">Hostel Joining System</p>
+          <h1 className="mt-3 text-3xl font-bold text-navy">Staff Login</h1>
           <p className="mt-2 text-sm leading-6 text-slate-600">For hostel office staff to view saved joining details.</p>
           <div className="mt-6 space-y-4">
             <div>

@@ -1,4 +1,3 @@
-import { CheckCircle, Clock3, FileText, XCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getApplications, getStats } from '../api/applicationApi';
@@ -25,19 +24,23 @@ export default function AdminDashboard() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-navy">Admin Dashboard</h1>
-        <p className="mt-1 text-sm text-slate-600">Monitor hostel joining requests and pending actions.</p>
-      </div>
-      <div className="grid gap-4 md:grid-cols-4">
-        <StatCard title="Total Applications" value={stats.totalApplications} icon={FileText} />
-        <StatCard title="Pending" value={stats.pendingApplications} icon={Clock3} />
-        <StatCard title="Approved" value={stats.approvedApplications} icon={CheckCircle} />
-        <StatCard title="Rejected" value={stats.rejectedApplications} icon={XCircle} />
-      </div>
-      <section className="panel overflow-hidden">
+      <section className="relative overflow-hidden rounded-lg bg-navy p-6 text-white shadow-[0_30px_90px_rgba(15,37,68,0.25)]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_88%_8%,rgba(37,99,235,0.32),transparent_32%)]" />
+        <div className="relative">
+          <p className="text-sm font-bold uppercase tracking-wide text-blue-100">Hostel Office</p>
+          <h1 className="mt-2 text-3xl font-bold">Records Dashboard</h1>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-blue-100">View saved joining records and manage hostel office entries from one professional workspace.</p>
+        </div>
+        <div className="relative mt-6 grid gap-4 md:grid-cols-4">
+          <StatCard title="Total Records" value={stats.totalApplications} accent="bg-blue-300" />
+          <StatCard title="Pending" value={stats.pendingApplications} accent="bg-yellow-300" />
+          <StatCard title="Approved" value={stats.approvedApplications} accent="bg-green-300" />
+          <StatCard title="Rejected" value={stats.rejectedApplications} accent="bg-red-300" />
+        </div>
+      </section>
+      <section className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,37,68,0.10)]">
         <div className="flex items-center justify-between border-b border-slate-200 p-5">
-          <h2 className="text-lg font-bold text-navy">Recent Applications</h2>
+          <h2 className="text-lg font-bold text-navy">Recent Records</h2>
           <Link to="/admin/applications" className="btn-secondary">View All</Link>
         </div>
         <div className="overflow-x-auto">
