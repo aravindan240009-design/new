@@ -34,23 +34,58 @@ export default function LandingPage() {
             </Link>
           </div>
           <div className="hidden lg:block">
-            <div className="rotate-[-2deg] rounded-lg border border-white/15 bg-white/10 p-5 shadow-[0_35px_95px_rgba(0,0,0,0.28)] backdrop-blur">
-              <div className="rotate-[2deg] rounded-md bg-white p-6 text-navy shadow-[0_20px_55px_rgba(0,0,0,0.18)]">
+            <div className="record-card-float group relative rounded-xl border border-white/15 bg-white/10 p-5 shadow-[0_35px_95px_rgba(0,0,0,0.28)] backdrop-blur transition duration-500 hover:-translate-y-2 hover:rotate-0 hover:bg-white/14 hover:shadow-[0_45px_120px_rgba(0,0,0,0.34)]">
+              <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl">
+                <div className="record-card-shine absolute inset-y-0 -left-2/3 w-1/2 bg-gradient-to-r from-transparent via-white/18 to-transparent" />
+              </div>
+              <div className="relative overflow-hidden rounded-lg bg-white p-6 text-navy shadow-[0_22px_65px_rgba(0,0,0,0.20)] transition duration-500 group-hover:shadow-[0_30px_80px_rgba(0,0,0,0.26)]">
                 <div className="mb-6 flex items-center justify-between border-b border-slate-200 pb-4">
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wide text-royal">Digital Record</p>
-                    <p className="mt-1 text-xl font-bold">Joining Details</p>
+                    <p className="mt-1 text-2xl font-bold">Joining Details</p>
                   </div>
-                  <span className="rounded-md bg-blue-50 px-3 py-1 text-xs font-bold text-royal">Secure</span>
+                  <span className="rounded-md bg-blue-50 px-3 py-1 text-xs font-bold text-royal ring-1 ring-blue-100">Secure</span>
                 </div>
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="h-12 rounded-md bg-slate-100" />
-                    <div className="h-12 rounded-md bg-slate-100" />
+                    <PreviewField label="Student name" width="w-4/5" />
+                    <PreviewField label="Register no" width="w-3/4" />
                   </div>
-                  <div className="h-12 rounded-md bg-slate-100" />
-                  <div className="h-24 rounded-md bg-slate-100" />
-                  <div className="ml-auto h-11 w-36 rounded-md bg-royal" />
+                  <PreviewField label="Course and joining date" width="w-2/3" />
+                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                    <div className="mb-3 flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-wide text-slate-400">Record sections</span>
+                      <span className="text-xs font-bold text-royal">4 steps</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      {['Student', 'Parent', 'Address', 'Guardian'].map((item, index) => (
+                        <div key={item} className="rounded-md bg-white px-3 py-3 shadow-sm transition duration-300 group-hover:-translate-y-0.5">
+                          <div className="flex items-center gap-3">
+                            <span className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-50 text-sm font-bold text-royal">{index + 1}</span>
+                            <span className="text-sm font-bold text-slate-700">{item}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between rounded-lg bg-navy p-4 text-white">
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-wide text-blue-100">Submission state</p>
+                      <p className="mt-1 text-lg font-bold">Ready for office records</p>
+                    </div>
+                    <div className="h-3 w-24 overflow-hidden rounded-full bg-white/15">
+                      <div className="record-progress h-full rounded-full bg-blue-300" />
+                    </div>
+                  </div>
+                  <div className="ml-auto h-11 w-36 rounded-md bg-royal shadow-[0_12px_30px_rgba(37,99,235,0.28)] transition group-hover:bg-blue-700" />
+                </div>
+              </div>
+              <div className="absolute -bottom-7 -left-8 w-72 rounded-lg border border-slate-200/80 bg-white/95 p-4 text-navy shadow-[0_26px_70px_rgba(0,0,0,0.22)] backdrop-blur transition duration-500 group-hover:-translate-y-2">
+                <p className="text-xs font-bold uppercase tracking-wide text-royal">Office checklist</p>
+                <div className="mt-3 space-y-2">
+                  {['Mobile number checked', 'Register number unique', 'Guardian details saved'].map((item) => (
+                    <div key={item} className="rounded-md bg-slate-50 px-3 py-2 text-sm font-bold text-navy shadow-sm">{item}</div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -58,5 +93,14 @@ export default function LandingPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+function PreviewField({ label, width }: { label: string; width: string }) {
+  return (
+    <div className="rounded-lg border border-slate-200 bg-white p-4 transition duration-300 hover:border-blue-200 hover:bg-blue-50/30">
+      <p className="text-xs font-bold uppercase tracking-wide text-slate-400">{label}</p>
+      <div className={`record-skeleton mt-3 h-3 ${width} rounded-full bg-slate-100`} />
+    </div>
   );
 }

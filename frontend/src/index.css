@@ -52,3 +52,80 @@ label {
 .saving-progress {
   animation: saving-progress 1.35s ease-in-out infinite;
 }
+
+@keyframes record-card-float {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-1.2deg);
+  }
+}
+
+@keyframes record-card-shine {
+  0% {
+    transform: translateX(0) skewX(-12deg);
+    opacity: 0;
+  }
+  24% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(360%) skewX(-12deg);
+    opacity: 0;
+  }
+}
+
+@keyframes record-skeleton {
+  0%, 100% {
+    opacity: 0.72;
+    transform: scaleX(0.92);
+    transform-origin: left;
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@keyframes record-progress {
+  0% {
+    width: 36%;
+  }
+  55% {
+    width: 88%;
+  }
+  100% {
+    width: 72%;
+  }
+}
+
+.record-card-float {
+  animation: record-card-float 7s ease-in-out infinite;
+}
+
+.record-card-shine {
+  animation: record-card-shine 5.5s ease-in-out infinite;
+}
+
+.record-skeleton {
+  animation: record-skeleton 2.6s ease-in-out infinite;
+}
+
+.record-progress {
+  animation: record-progress 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .record-card-float,
+  .record-card-shine,
+  .record-skeleton,
+  .record-progress,
+  .saving-progress {
+    animation: none;
+  }
+}
