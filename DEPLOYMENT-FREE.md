@@ -77,7 +77,7 @@ dist
 6. Add environment variable:
 
 ```text
-VITE_API_BASE_URL=https://YOUR_BACKEND_URL
+VITE_API_BASE_URL=https://newest-8ygb.onrender.com
 ```
 
 7. After Netlify gives you a URL, update backend `CORS_ALLOWED_ORIGIN` to that URL and restart backend:
@@ -97,7 +97,7 @@ DATABASE_URL
 DATABASE_USERNAME
 DATABASE_PASSWORD
 JWT_SECRET
-CORS_ALLOWED_ORIGIN
+CORS_ALLOWED_ORIGIN=https://hostel-joining-system.netlify.app
 ```
 
 Render Free is easier but usually has sleep/cold-start behavior.

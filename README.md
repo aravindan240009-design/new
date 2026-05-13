@@ -177,11 +177,11 @@ dist
 5. Add Netlify environment variable:
 
 ```text
-VITE_API_BASE_URL=https://your-render-backend-url
+VITE_API_BASE_URL=https://newest-8ygb.onrender.com
 ```
 
 6. Deploy the frontend.
-7. Update Render `CORS_ALLOWED_ORIGIN` to the final Netlify URL.
+7. Update Render `CORS_ALLOWED_ORIGIN` to `https://hostel-joining-system.netlify.app`.
 8. Redeploy the backend so CORS picks up the Netlify URL.
 
 ## Higher-Limit Free Deployment
