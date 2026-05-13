@@ -2,7 +2,7 @@ import axios from 'axios';
 import { clearToken, getToken } from '../utils/auth';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://newest-8ygb.onrender.com',
   headers: { 'Content-Type': 'application/json' },
 });
 

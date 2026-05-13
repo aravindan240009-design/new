@@ -21,7 +21,7 @@ export default function AdminLogin() {
       navigate('/admin/dashboard');
     } catch (error: any) {
       const message = error.code === 'ERR_NETWORK'
-        ? 'Backend is not running. Start the Spring Boot server on port 8080.'
+        ? 'Unable to reach the server. Please try again in a minute.'
         : error.response?.data?.message || 'Invalid username or password';
       toast.error(message);
     } finally {
@@ -53,7 +53,6 @@ export default function AdminLogin() {
             </div>
           </div>
           <button className="btn-primary mt-6 w-full" disabled={loading}>{loading ? 'Signing in...' : 'Login'}</button>
-          <p className="mt-3 rounded-md bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-500">Default local login: admin / admin123. Backend must be running.</p>
           <Link to="/" className="mt-4 block text-center text-sm font-semibold text-royal">Back to home</Link>
         </form>
       </main>
