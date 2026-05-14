@@ -12,6 +12,6 @@ public class SwaggerConfig {
         return new OpenAPI().info(new Info()
                 .title("Hostel Joining Application Management API")
                 .version("1.0.0")
-                .description("APIs for student hostel applications and admin management"));
+                .description("APIs for saving unique hostel student details and staff record management"));
     }
 }

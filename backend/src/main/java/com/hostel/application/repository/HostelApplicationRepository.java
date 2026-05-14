@@ -1,7 +1,6 @@
 package com.hostel.application.repository;
 
 import com.hostel.application.entity.HostelApplication;
-import com.hostel.application.enums.ApplicationStatus;
 import com.hostel.application.enums.Gender;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,7 +12,6 @@ public interface HostelApplicationRepository extends JpaRepository<HostelApplica
     boolean existsByRegisterNumberIgnoreCase(String registerNumber);
     boolean existsByRegisterNumberIgnoreCaseAndIdNot(String registerNumber, Long id);
     List<HostelApplication> findAllByOrderByCreatedAtDesc();
-    long countByStatus(ApplicationStatus status);
     long countByGender(Gender gender);
 
     @Query("""
@@ -33,12 +31,10 @@ public interface HostelApplicationRepository extends JpaRepository<HostelApplica
 
     @Query("""
             select h from HostelApplication h
-            where (:status is null or h.status = :status)
-              and (:gender is null or h.gender = :gender)
+            where (:gender is null or h.gender = :gender)
               and (:course is null or lower(h.course) = lower(:course))
             order by h.createdAt desc
             """)
-    List<HostelApplication> filter(@Param("status") ApplicationStatus status,
-                                   @Param("gender") Gender gender,
+    List<HostelApplication> filter(@Param("gender") Gender gender,
                                    @Param("course") String course);
 }

@@ -13,7 +13,7 @@ export default function AdminLayout() {
           <p className="hidden px-4 pb-3 pt-1 text-xs font-bold uppercase tracking-wide text-slate-400 lg:block">Admin</p>
           <nav className="flex gap-1 overflow-x-auto pb-1 sm:grid sm:grid-cols-2 sm:overflow-visible sm:pb-0 lg:grid-cols-1">
             <NavLink to="/admin/dashboard" className={linkClass}>Dashboard</NavLink>
-            <NavLink to="/admin/applications" className={linkClass}>Applications</NavLink>
+            <NavLink to="/admin/applications" className={linkClass}>Student Records</NavLink>
           </nav>
         </aside>
         <main className="flex-1 overflow-y-auto pr-1 custom-scrollbar">

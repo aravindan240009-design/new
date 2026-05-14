@@ -1,6 +1,5 @@
 package com.hostel.application.dto;
 
-import com.hostel.application.enums.ApplicationStatus;
 import com.hostel.application.enums.Gender;
 
 import java.time.LocalDate;
@@ -28,7 +27,6 @@ public record HostelApplicationResponse(
         String bedNo,
         String wardenName,
         String wardenContactNo,
-        ApplicationStatus status,
         LocalDateTime createdAt,
         LocalDateTime updatedAt
 ) {

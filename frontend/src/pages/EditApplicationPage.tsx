@@ -54,7 +54,7 @@ export default function EditApplicationPage() {
     setSaving(true);
     try {
       await updateApplication(id, payload);
-      toast.success('Application updated');
+      toast.success('Student record updated');
       navigate(`/admin/applications/${id}`);
     } catch (error: any) {
       toast.error(error.response?.data?.message || 'Update failed');

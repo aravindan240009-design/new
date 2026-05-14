@@ -13,10 +13,10 @@ export default function SuccessPage() {
             <CheckCircle2 className="h-10 w-10 text-green-600" />
           </div>
           <h1 className="mt-5 text-2xl font-bold text-navy sm:text-3xl">Details Saved Successfully</h1>
-          <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">Your details have been saved in the hostel office records.</p>
+          <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">Your hostel details have been saved in the institution database. This register number cannot submit another record.</p>
           {state?.registerNumber && <p className="mt-5 rounded-md bg-blue-50 px-4 py-3 text-sm font-bold text-royal sm:text-base">Register Number: {state.registerNumber}</p>}
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link to="/apply" className="btn-primary">Save Another Record</Link>
+            <Link to="/apply" className="btn-primary">Submit Another Student</Link>
             <Link to="/" className="btn-secondary">Go Home</Link>
           </div>
         </div>

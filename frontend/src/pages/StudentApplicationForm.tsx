@@ -45,7 +45,7 @@ export default function StudentApplicationForm() {
     setLoading(true);
     try {
       const saved = await submitApplication(payload);
-      toast.success('Application submitted successfully');
+      toast.success('Hostel details saved successfully');
       navigate('/success', { state: { registerNumber: saved.registerNumber } });
     } catch (error: any) {
       toast.error(error.response?.data?.message || 'Submission failed');
@@ -65,7 +65,7 @@ export default function StudentApplicationForm() {
             <div className="absolute inset-0 z-20 flex items-center justify-center bg-white/85 px-4 backdrop-blur-sm">
               <div className="w-full max-w-sm rounded-lg border border-blue-100 bg-white p-6 text-center shadow-[0_24px_80px_rgba(15,37,68,0.18)]">
                 <div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-blue-100 border-t-royal" />
-                <h2 className="mt-5 text-lg font-bold text-navy">Saving your details</h2>
+            <h2 className="mt-5 text-lg font-bold text-navy">Saving your details</h2>
                 <p className="mt-2 text-sm leading-6 text-slate-600">Please wait. Do not close this page or edit the form while your record is being saved.</p>
                 <div className="mt-5 h-2 overflow-hidden rounded-full bg-blue-50">
                   <div className="saving-progress h-full w-1/2 rounded-full bg-royal" />
@@ -77,7 +77,7 @@ export default function StudentApplicationForm() {
           <div className="mb-8">
             <p className="text-sm font-bold uppercase tracking-wide text-royal">Hostel Office Record</p>
             <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">Hostel Detail Submission Form</h1>
-            <p className="mt-2 text-sm leading-6 text-slate-600">Fill every required field carefully. Your details will be saved for hostel office records.</p>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Fill every required field carefully. One register number can submit only one hostel details record.</p>
           </div>
           <ApplicationFormFields register={register} errors={errors} />
           <div className="mt-8 flex justify-end">

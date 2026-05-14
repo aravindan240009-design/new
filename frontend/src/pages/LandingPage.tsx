@@ -23,8 +23,8 @@ export default function LandingPage() {
             <div className="mb-3 inline-flex w-fit rounded-md bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-blue-50 ring-1 ring-white/15 sm:mb-6 sm:px-4 sm:py-2 sm:text-sm sm:normal-case sm:tracking-normal">
               College Hostel Office
             </div>
-            <h1 className="max-w-3xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl">Hostel Detail Submission</h1>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-blue-100 sm:mt-5 sm:text-base sm:leading-7 lg:text-lg lg:leading-8">Submit your student information securely for the hostel office database.</p>
+            <h1 className="max-w-3xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl">Hostel Student Details Submission</h1>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-blue-100 sm:mt-5 sm:text-base sm:leading-7 lg:text-lg lg:leading-8">Submit hostel student, guardian, room, and warden details once for the institution database.</p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
                 to="/apply"
@@ -82,7 +82,7 @@ export default function LandingPage() {
 
                   <div className="flex items-center justify-between gap-4 rounded-xl bg-navy p-4 text-white shadow-lg sm:p-5">
                     <div className="flex-1">
-                      <p className="mt-0.5 text-sm font-bold sm:text-base">Secure Office Record</p>
+                    <p className="mt-0.5 text-sm font-bold sm:text-base">Unique Register Record</p>
                     </div>
                     <div className="h-2 w-20 shrink-0 overflow-hidden rounded-full bg-white/10 sm:w-24">
                       <div className="record-progress h-full rounded-full bg-blue-400" />

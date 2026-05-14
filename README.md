@@ -1,6 +1,6 @@
-# Hostel Joining Application Management System
+# Hostel Student Details Management System
 
-A production-ready full-stack hostel joining portal that replaces paper forms with online submission, secure warden/admin review, status workflows, room allotment, advanced table management, CSV export, print, and PDF download.
+A production-ready full-stack hostel details portal that replaces paper forms with online submission, secure staff access, a searchable student records register, and edit tools. Each register number can submit only one hostel details record.
 
 ## Stack
 
@@ -110,7 +110,7 @@ http://localhost:5173
 
 Public:
 
-- `POST /api/applications` submits a student hostel application.
+- `POST /api/applications` saves one student hostel details record. Duplicate register numbers are blocked.
 - `POST /api/auth/login` returns a JWT token for admin access.
 
 Protected admin endpoints require `Authorization: Bearer <token>`:
@@ -118,12 +118,8 @@ Protected admin endpoints require `Authorization: Bearer <token>`:
 - `GET /api/applications`
 - `GET /api/applications/{id}`
 - `PUT /api/applications/{id}`
-- `DELETE /api/applications/{id}`
-- `PATCH /api/applications/{id}/approve`
-- `PATCH /api/applications/{id}/reject`
-- `PATCH /api/applications/{id}/room`
 - `GET /api/applications/search?keyword=`
-- `GET /api/applications/filter?status=&gender=&course=`
+- `GET /api/applications/filter?gender=&course=`
 - `GET /api/applications/stats`
 
 ## Supabase Setup

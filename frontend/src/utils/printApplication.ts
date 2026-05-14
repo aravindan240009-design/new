@@ -31,7 +31,6 @@ export const printApplication = (application: HostelApplication) => {
         'Bed No': application.bedNo || 'Not assigned',
         'Warden Name': application.wardenName || 'Not provided',
         'Warden Contact': application.wardenContactNo || 'Not provided',
-        Status: application.status,
       }).map(([key, value]) => `<tr><td>${escapeHtml(key)}</td><td>${escapeHtml(String(value))}</td></tr>`).join('')}
     </table></body></html>`;
   const win = window.open('', '_blank');
@@ -76,7 +75,6 @@ export const downloadApplicationPdf = (application: HostelApplication) => {
     ['Bed No', application.bedNo || 'Not assigned'],
     ['Warden Name', application.wardenName || 'Not provided'],
     ['Warden Contact', application.wardenContactNo || 'Not provided'],
-    ['Status', application.status],
   ];
 
   pdf.setFontSize(16);
