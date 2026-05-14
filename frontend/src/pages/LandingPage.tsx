@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-[#0B2545] text-white">
-      <section className="relative isolate flex min-h-screen w-full flex-col overflow-hidden pb-10 sm:pb-8">
+    <main className="h-[100dvh] w-full overflow-hidden bg-[#0B2545] text-white">
+      <section className="relative isolate flex h-full min-h-0 w-full flex-col overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(135deg,#0f2544_0%,#143a68_52%,#0b1b33_100%)]" />
 
         <header className="relative z-10 w-full border-b border-white/10">
@@ -19,7 +19,7 @@ export default function LandingPage() {
           </div>
         </header>
 
-        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col px-5 pt-8 sm:px-6 sm:pt-10 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12 lg:px-8 lg:py-12 xl:gap-16">
+        <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col px-5 pt-8 sm:px-6 sm:pt-10 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12 lg:px-8 lg:py-8 xl:gap-16">
           
           {/* Text Container */}
           <div className="page-fade flex w-full min-w-0 flex-col items-start text-left lg:items-start lg:text-left">
