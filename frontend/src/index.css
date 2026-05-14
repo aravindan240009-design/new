@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
   color: #0f172a;
   background: #f8fafc;
@@ -14,11 +13,11 @@ body {
 }
 
 input, select, textarea {
-  @apply w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-royal focus:ring-2 focus:ring-blue-100;
+  @apply w-full rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs outline-none transition focus:border-royal focus:ring-2 focus:ring-blue-100 sm:py-2 sm:text-sm;
 }
 
 label {
-  @apply text-sm font-semibold text-slate-700;
+  @apply mb-1 block text-xs font-semibold text-slate-700 sm:text-sm;
 }
 
 .btn-primary {
@@ -35,6 +34,29 @@ label {
 
 .panel {
   @apply rounded-lg border border-slate-200 bg-white shadow-soft;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 @keyframes saving-progress {
@@ -95,12 +117,15 @@ label {
 @keyframes record-progress {
   0% {
     width: 36%;
+    box-shadow: 0 0 8px rgba(96,165,250,0.3);
   }
   55% {
     width: 88%;
+    box-shadow: 0 0 15px rgba(96,165,250,0.6);
   }
   100% {
     width: 72%;
+    box-shadow: 0 0 8px rgba(96,165,250,0.3);
   }
 }
 

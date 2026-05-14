@@ -65,8 +65,8 @@ export default function EditApplicationPage() {
       <Link to={`/admin/applications/${id}`} className="inline-flex items-center gap-2 text-sm font-semibold text-royal"><ArrowLeft className="h-4 w-4" />Back</Link>
       <form onSubmit={handleSubmit(submit)} className="panel p-6">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-navy">Edit Application</h1>
-          <p className="mt-1 text-sm text-slate-600">Update submitted student details.</p>
+          <h1 className="text-3xl font-bold text-navy uppercase tracking-tight">Edit Student Record</h1>
+          <p className="mt-1 text-sm text-slate-600">Update submitted student details for office database.</p>
         </div>
         <ApplicationFormFields register={register} errors={errors} />
         <div className="mt-8 flex justify-end">

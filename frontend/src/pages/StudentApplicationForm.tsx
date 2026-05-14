@@ -52,9 +52,10 @@ export default function StudentApplicationForm() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navbar />
-      <main className="mx-auto max-w-5xl px-4 py-6 sm:py-8">
-        <Link to="/" className="mb-5 inline-flex items-center gap-2 text-sm font-semibold text-royal"><ArrowLeft className="h-4 w-4" />Back to home</Link>
-        <form onSubmit={handleSubmit(onSubmit)} className="panel relative overflow-hidden p-5 sm:p-6 md:p-8">
+      <main className="mx-auto max-w-5xl px-4 py-4 sm:py-8">
+        <Link to="/" className="mb-4 inline-flex items-center gap-2 text-sm font-semibold text-royal"><ArrowLeft className="h-4 w-4" />Back</Link>
+        <form onSubmit={handleSubmit(onSubmit)} className="panel relative overflow-hidden p-4 sm:p-6 md:p-8">
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none [background-image:linear-gradient(rgba(15,37,68,1)_1px,transparent_1px),linear-gradient(90deg,rgba(15,37,68,1)_1px,transparent_1px)] [background-size:48px_48px]" />
           {loading && (
             <div className="absolute inset-0 z-20 flex items-center justify-center bg-white/85 px-4 backdrop-blur-sm">
               <div className="w-full max-w-sm rounded-lg border border-blue-100 bg-white p-6 text-center shadow-[0_24px_80px_rgba(15,37,68,0.18)]">
@@ -70,7 +71,7 @@ export default function StudentApplicationForm() {
           <fieldset disabled={loading} className={loading ? 'pointer-events-none select-none opacity-60' : ''}>
           <div className="mb-8">
             <p className="text-sm font-bold uppercase tracking-wide text-royal">Hostel Office Record</p>
-            <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">Hostel Joining Form</h1>
+            <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">Hostel Detail Submission Form</h1>
             <p className="mt-2 text-sm leading-6 text-slate-600">Fill every required field carefully. Your details will be saved for hostel office records.</p>
           </div>
           <ApplicationFormFields register={register} errors={errors} />

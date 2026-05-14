@@ -11,9 +11,9 @@ export default function Navbar() {
   return (
     <header className="border-b border-slate-200 bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-        <Link to="/" className="flex items-center gap-3 font-bold text-navy">
-          <Building2 className="h-7 w-7 text-royal" />
-          <span>Hostel Joining System</span>
+        <Link to="/" className="flex items-center gap-2 font-bold text-navy sm:gap-3">
+          <Building2 className="h-6 w-6 text-royal sm:h-7 sm:w-7" />
+          <span className="text-sm sm:text-base">Hostel Detail Submission</span>
         </Link>
         {isAuthenticated() ? (
           <button className="btn-secondary" onClick={logout}><LogOut className="h-4 w-4" />Logout</button>

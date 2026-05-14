@@ -9,7 +9,7 @@ export const printApplication = (application: HostelApplication) => {
   const html = `
     <html><head><title>${application.registerNumber}</title>
     <style>body{font-family:Arial;padding:28px;color:#111827}h1{color:#0f2544}table{width:100%;border-collapse:collapse}td{border:1px solid #d1d5db;padding:10px;vertical-align:top}td:first-child{font-weight:700;background:#f8fafc;width:32%}</style>
-    </head><body><h1>Hostel Joining Application</h1><table>
+    </head><body><h1>Hostel Detail Submission</h1><table>
       ${Object.entries({
         'Student Name': application.studentName,
         'Register Number': application.registerNumber,
@@ -72,7 +72,7 @@ export const downloadApplicationPdf = (application: HostelApplication) => {
   ];
 
   pdf.setFontSize(16);
-  pdf.text('Hostel Joining Application', 14, 18);
+  pdf.text('Hostel Detail Submission', 14, 18);
   pdf.setFontSize(10);
   let y = 30;
   lines.forEach(([label, value]) => {
