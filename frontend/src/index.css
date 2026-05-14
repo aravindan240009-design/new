@@ -10,10 +10,11 @@
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
 }
 
 input, select, textarea {
-  @apply w-full rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs outline-none transition focus:border-royal focus:ring-2 focus:ring-blue-100 sm:py-2 sm:text-sm;
+  @apply w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-royal focus:ring-4 focus:ring-blue-100 disabled:bg-slate-100 disabled:text-slate-500 sm:px-4;
 }
 
 label {
@@ -21,19 +22,55 @@ label {
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-2 rounded-md bg-royal px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60;
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-royal px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-lg active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center gap-2 rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60;
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-50 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60;
 }
 
 .btn-danger {
-  @apply inline-flex items-center justify-center gap-2 rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700;
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-red-700 active:translate-y-0;
 }
 
 .panel {
-  @apply rounded-lg border border-slate-200 bg-white shadow-soft;
+  @apply rounded-2xl border border-slate-200 bg-white shadow-soft;
+}
+
+.page-shell {
+  @apply mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8;
+}
+
+.section-card {
+  @apply rounded-2xl border border-slate-200 bg-white shadow-[0_18px_55px_rgba(15,37,68,0.08)];
+}
+
+.page-fade {
+  animation: page-fade 420ms ease-out both;
+}
+
+.card-rise {
+  animation: card-rise 520ms ease-out both;
+}
+
+@keyframes page-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .custom-scrollbar {
@@ -152,5 +189,13 @@ label {
   .record-progress,
   .saving-progress {
     animation: none;
+  }
+}
+
+@media (hover: none) {
+  .btn-primary,
+  .btn-secondary,
+  .btn-danger {
+    transform: none !important;
   }
 }

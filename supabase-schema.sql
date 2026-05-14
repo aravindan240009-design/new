@@ -20,6 +20,7 @@ create table if not exists hostel_applications (
   bed_no varchar(80),
   warden_name varchar(255),
   warden_contact_no varchar(10) check (warden_contact_no is null or warden_contact_no ~ '^[0-9]{10}$'),
+  status varchar(20) not null default 'PENDING' check (status in ('PENDING', 'APPROVED', 'REJECTED')),
   created_at timestamp not null default current_timestamp,
   updated_at timestamp not null default current_timestamp
 );
@@ -31,6 +32,7 @@ alter table hostel_applications add column if not exists bed_no varchar(80);
 alter table hostel_applications add column if not exists warden_name varchar(255);
 alter table hostel_applications add column if not exists warden_contact_no varchar(10);
 
+create index if not exists idx_hostel_applications_status on hostel_applications(status);
 create index if not exists idx_hostel_applications_gender on hostel_applications(gender);
 create index if not exists idx_hostel_applications_course on hostel_applications(course);
 create index if not exists idx_hostel_applications_created_at on hostel_applications(created_at desc);

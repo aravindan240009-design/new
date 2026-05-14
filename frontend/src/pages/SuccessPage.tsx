@@ -1,13 +1,15 @@
 import { CheckCircle2 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import PageContainer from '../components/PageContainer';
 
 export default function SuccessPage() {
   const { state } = useLocation();
   return (
     <div className="min-h-screen bg-slate-50">
       <Navbar />
-      <main className="mx-auto flex h-[calc(100vh-64px)] max-w-2xl items-center justify-center px-4">
+      <PageContainer>
+      <main className="mx-auto flex min-h-[calc(100vh-64px)] max-w-2xl items-center justify-center py-8">
         <div className="panel w-full p-8 text-center sm:p-10">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-50">
             <CheckCircle2 className="h-10 w-10 text-green-600" />
@@ -21,6 +23,7 @@ export default function SuccessPage() {
           </div>
         </div>
       </main>
+      </PageContainer>
     </div>
   );
 }

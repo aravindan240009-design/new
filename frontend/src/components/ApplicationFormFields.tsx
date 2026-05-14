@@ -60,7 +60,7 @@ function TextArea({ label, name, register, errors, required = true }: {
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className="rounded-xl border border-slate-100 bg-slate-50/50 p-5 sm:p-6">
+    <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_12px_32px_rgba(15,37,68,0.06)] sm:p-6">
       <h2 className="mb-5 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-royal">
         <span className="h-1.5 w-1.5 rounded-full bg-royal" />
         {title}
@@ -75,8 +75,8 @@ export default function ApplicationFormFields({ register, errors }: {
   errors: FieldErrors<HostelApplicationPayload>;
 }) {
   return (
-    <div className="space-y-6 sm:space-y-8">
-      <Section title="Student Information">
+    <div className="space-y-5 sm:space-y-6">
+      <Section title="Student Details">
         <Field label="Name of the Student" name="studentName" register={register} errors={errors} />
         <Field label="Register Number" name="registerNumber" register={register} errors={errors} />
         <Field label="Course" name="course" register={register} errors={errors} />
@@ -93,12 +93,12 @@ export default function ApplicationFormFields({ register, errors }: {
         <Field label="Date of Birth" name="dateOfBirth" type="date" register={register} errors={errors} />
       </Section>
 
-      <Section title="Parent Information">
+      <Section title="Parent Details">
         <Field label="Name of the Parent" name="parentName" register={register} errors={errors} />
         <Field label="Parent Contact No" name="parentContactNo" register={register} errors={errors} />
       </Section>
 
-      <Section title="Admission Details">
+      <Section title="Course & Joining Details">
         <Field label="Date of Admission" name="dateOfJoining" type="date" register={register} errors={errors} />
       </Section>
 

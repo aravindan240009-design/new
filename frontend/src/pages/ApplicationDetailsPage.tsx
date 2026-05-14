@@ -1,9 +1,12 @@
-import { ArrowLeft, Edit, UserRound } from 'lucide-react';
+import { ArrowLeft, Check, Download, Edit, Printer, UserRound, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useParams } from 'react-router-dom';
-import { getApplication } from '../api/applicationApi';
+import { approveApplication, getApplication, rejectApplication } from '../api/applicationApi';
 import Loading from '../components/Loading';
+import StatusBadge from '../components/StatusBadge';
 import { HostelApplication } from '../types/application';
+import { downloadElementPdf, printApplication } from '../utils/printApplication';
 
 function Row({ label, value }: { label: string; value?: string }) {
   return (
@@ -22,14 +25,29 @@ export default function ApplicationDetailsPage() {
     if (id) getApplication(id).then(setApplication);
   }, [id]);
 
+  const action = async (job: () => Promise<unknown>, message: string) => {
+    if (!id) return;
+    try {
+      await job();
+      toast.success(message);
+      setApplication(await getApplication(id));
+    } catch (error: any) {
+      toast.error(error.response?.data?.message || 'Action failed');
+    }
+  };
+
   if (!application) return <Loading />;
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 page-fade">
       <div className="flex flex-col justify-between gap-3 md:flex-row md:items-center">
         <Link to="/admin/applications" className="inline-flex items-center gap-2 text-sm font-semibold text-royal"><ArrowLeft className="h-4 w-4" />Back</Link>
-        <div className="grid grid-cols-1 gap-2 sm:flex sm:flex-wrap">
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
           <Link className="btn-secondary" to={`/admin/applications/${application.id}/edit`}><Edit className="h-4 w-4" />Edit</Link>
+          <button className="btn-secondary" onClick={() => printApplication(application)}><Printer className="h-4 w-4" />Print</button>
+          <button className="btn-secondary" onClick={() => downloadElementPdf('application-detail', `${application.registerNumber}.pdf`)}><Download className="h-4 w-4" />PDF</button>
+          <button className="btn-primary" onClick={() => action(() => approveApplication(application.id), 'Record approved')}><Check className="h-4 w-4" />Approve</button>
+          <button className="btn-danger" onClick={() => action(() => rejectApplication(application.id), 'Record rejected')}><X className="h-4 w-4" />Reject</button>
         </div>
       </div>
       <section id="application-detail" className="panel p-5 sm:p-8">
@@ -46,12 +64,13 @@ export default function ApplicationDetailsPage() {
             </p>
           </div>
           <div className="space-y-2 rounded-lg bg-slate-50 p-4 md:text-right">
+            <StatusBadge status={application.status} />
             <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Saved Record</p>
             <p className="text-sm font-bold text-navy">{application.hostelName || 'Hostel not provided'}</p>
             <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Room: <span className="text-navy">{application.roomNo || 'Not provided'}</span></p>
           </div>
         </div>
-        <dl className="mt-5">
+        <dl className="mt-5 grid gap-x-8 md:grid-cols-2">
           <Row label="Student Mobile" value={application.studentMobileNo} />
           <Row label="Gender" value={application.gender} />
           <Row label="Date of Birth" value={application.dateOfBirth} />

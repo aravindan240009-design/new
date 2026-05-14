@@ -8,6 +8,7 @@ import { z } from 'zod';
 import { submitApplication } from '../api/applicationApi';
 import ApplicationFormFields, { emptyApplication } from '../components/ApplicationFormFields';
 import Navbar from '../components/Navbar';
+import PageContainer from '../components/PageContainer';
 import { HostelApplicationPayload } from '../types/application';
 
 export const applicationSchema = z.object({
@@ -57,9 +58,10 @@ export default function StudentApplicationForm() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navbar />
-      <main className="mx-auto max-w-5xl px-4 py-4 sm:py-8">
+      <PageContainer className="py-4 sm:py-8">
+        <main className="mx-auto max-w-5xl">
         <Link to="/" className="mb-4 inline-flex items-center gap-2 text-sm font-semibold text-royal"><ArrowLeft className="h-4 w-4" />Back</Link>
-        <form onSubmit={handleSubmit(onSubmit)} className="panel relative overflow-hidden p-4 sm:p-6 md:p-8">
+        <form onSubmit={handleSubmit(onSubmit)} className="panel relative overflow-hidden bg-slate-50 p-4 sm:p-6 md:p-8">
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none [background-image:linear-gradient(rgba(15,37,68,1)_1px,transparent_1px),linear-gradient(90deg,rgba(15,37,68,1)_1px,transparent_1px)] [background-size:48px_48px]" />
           {loading && (
             <div className="absolute inset-0 z-20 flex items-center justify-center bg-white/85 px-4 backdrop-blur-sm">
@@ -74,10 +76,10 @@ export default function StudentApplicationForm() {
             </div>
           )}
           <fieldset disabled={loading} className={loading ? 'pointer-events-none select-none opacity-60' : ''}>
-          <div className="mb-8">
-            <p className="text-sm font-bold uppercase tracking-wide text-royal">Hostel Office Record</p>
-            <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">Hostel Detail Submission Form</h1>
-            <p className="mt-2 text-sm leading-6 text-slate-600">Fill every required field carefully. One register number can submit only one hostel details record.</p>
+          <div className="mb-6 rounded-2xl bg-gradient-to-br from-navy via-[#143a68] to-[#0b1b33] p-5 text-white sm:mb-8 sm:p-6">
+            <p className="text-sm font-bold uppercase tracking-wide text-blue-100">Hostel Office Record</p>
+            <h1 className="mt-2 text-2xl font-bold sm:text-3xl">Hostel Detail Submission Form</h1>
+            <p className="mt-2 max-w-3xl text-sm leading-6 text-blue-100">Fill every required field carefully. One register number can submit only one hostel details record.</p>
           </div>
           <ApplicationFormFields register={register} errors={errors} />
           <div className="mt-8 flex justify-end">
@@ -85,7 +87,8 @@ export default function StudentApplicationForm() {
           </div>
           </fieldset>
         </form>
-      </main>
+        </main>
+      </PageContainer>
     </div>
   );
 }

@@ -66,16 +66,16 @@ export default function EditApplicationPage() {
   if (loading) return <Loading />;
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 page-fade">
       <Link to={`/admin/applications/${id}`} className="inline-flex items-center gap-2 text-sm font-semibold text-royal"><ArrowLeft className="h-4 w-4" />Back</Link>
-      <form onSubmit={handleSubmit(submit)} className="panel p-6">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-navy uppercase tracking-tight">Edit Student Record</h1>
-          <p className="mt-1 text-sm text-slate-600">Update submitted student details for office database.</p>
+      <form onSubmit={handleSubmit(submit)} className="panel bg-slate-50 p-4 sm:p-6">
+        <div className="mb-6 rounded-2xl bg-gradient-to-br from-navy via-[#143a68] to-[#0b1b33] p-5 text-white sm:p-6">
+          <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">Edit Student Record</h1>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-blue-100">Update submitted student details for the hostel office database.</p>
         </div>
         <ApplicationFormFields register={register} errors={errors} />
         <div className="mt-8 flex justify-end">
-          <button className="btn-primary" disabled={saving}><Save className="h-4 w-4" />{saving ? 'Saving...' : 'Save Update'}</button>
+          <button className="btn-primary w-full sm:w-auto" disabled={saving}><Save className="h-4 w-4" />{saving ? 'Saving...' : 'Save Update'}</button>
         </div>
       </form>
     </div>

@@ -1,5 +1,6 @@
 package com.hostel.application.entity;
 
+import com.hostel.application.enums.ApplicationStatus;
 import com.hostel.application.enums.Gender;
 import jakarta.persistence.*;
 import lombok.*;
@@ -75,6 +76,10 @@ public class HostelApplication {
     @Column(length = 10)
     private String wardenContactNo;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private ApplicationStatus status = ApplicationStatus.PENDING;
+
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
@@ -86,6 +91,9 @@ public class HostelApplication {
         LocalDateTime now = LocalDateTime.now();
         createdAt = now;
         updatedAt = now;
+        if (status == null) {
+            status = ApplicationStatus.PENDING;
+        }
     }
 
     @PreUpdate

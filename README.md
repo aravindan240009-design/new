@@ -1,6 +1,6 @@
 # Hostel Student Details Management System
 
-A production-ready full-stack hostel details portal that replaces paper forms with online submission, secure staff access, a searchable student records register, and edit tools. Each register number can submit only one hostel details record.
+A production-ready full-stack hostel details portal that replaces paper forms with online submission, secure staff access, a searchable student records register, edit tools, status workflow, CSV export, print, and PDF download. Each register number can submit only one hostel details record.
 
 ## Stack
 
@@ -118,8 +118,12 @@ Protected admin endpoints require `Authorization: Bearer <token>`:
 - `GET /api/applications`
 - `GET /api/applications/{id}`
 - `PUT /api/applications/{id}`
+- `DELETE /api/applications/{id}`
+- `PATCH /api/applications/{id}/approve`
+- `PATCH /api/applications/{id}/reject`
+- `PATCH /api/applications/{id}/room`
 - `GET /api/applications/search?keyword=`
-- `GET /api/applications/filter?gender=&course=`
+- `GET /api/applications/filter?status=&gender=&course=`
 - `GET /api/applications/stats`
 
 ## Supabase Setup

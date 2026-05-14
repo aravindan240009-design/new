@@ -2,13 +2,14 @@ import { Link } from 'react-router-dom';
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-navy text-white lg:h-screen lg:overflow-hidden">
-      <section className="relative isolate flex min-h-screen flex-col overflow-hidden px-4 pb-12 sm:px-6 lg:h-full lg:px-8">
+    <main className="min-h-screen overflow-x-hidden bg-navy text-white">
+      <section className="relative isolate flex min-h-screen flex-col overflow-hidden pb-10">
         <div className="absolute inset-0 bg-[linear-gradient(135deg,#0f2544_0%,#143a68_52%,#0b1b33_100%)]" />
         <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:64px_64px]" />
         
         <div className="relative z-10 w-full">
-          <div className="mx-auto flex max-w-[1400px] items-center justify-end px-5 py-4 sm:px-10 sm:py-6">
+          <div className="page-shell flex items-center justify-between py-4 sm:py-6">
+            <p className="truncate text-base font-bold sm:text-lg">Hostel Joining System</p>
             <Link
               to="/admin/login"
               className="shrink-0 rounded-md border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold text-blue-50 transition hover:border-white/40 hover:bg-white hover:text-navy sm:px-6 sm:py-2.5 sm:text-base"
@@ -18,25 +19,25 @@ export default function LandingPage() {
           </div>
         </div>
 
-        <div className="relative mx-auto grid w-full max-w-[1400px] flex-1 items-center gap-12 px-5 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+        <div className="page-shell relative grid flex-1 items-center gap-8 py-8 sm:py-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-12 xl:gap-16">
           <div className="flex flex-col justify-center text-left">
             <div className="mb-3 inline-flex w-fit rounded-md bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-blue-50 ring-1 ring-white/15 sm:mb-6 sm:px-4 sm:py-2 sm:text-sm sm:normal-case sm:tracking-normal">
               College Hostel Office
             </div>
             <h1 className="max-w-3xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl">Hostel Student Details Submission</h1>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-blue-100 sm:mt-5 sm:text-base sm:leading-7 lg:text-lg lg:leading-8">Submit hostel student, guardian, room, and warden details once for the institution database.</p>
+            <p className="mt-3 max-w-2xl text-base leading-7 text-blue-100 sm:mt-5 sm:text-lg lg:leading-8">Submit hostel student, guardian, room, and warden details once for the institution database.</p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
                 to="/apply"
-                className="inline-flex w-full items-center justify-center rounded-md bg-white px-7 py-3.5 text-sm font-bold text-navy shadow-[0_22px_55px_rgba(0,0,0,0.22)] transition hover:-translate-y-0.5 hover:bg-blue-50 hover:text-royal hover:shadow-[0_28px_70px_rgba(0,0,0,0.28)] sm:w-fit sm:px-8 sm:py-4"
+                className="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-white px-7 py-3.5 text-sm font-bold text-navy shadow-[0_22px_55px_rgba(0,0,0,0.22)] transition hover:-translate-y-0.5 hover:bg-blue-50 hover:text-royal hover:shadow-[0_28px_70px_rgba(0,0,0,0.28)] sm:w-fit sm:px-8 sm:py-4"
               >
                 Fill Hostel Form
               </Link>
             </div>
           </div>
 
-          <div className="flex w-full max-w-[520px] items-center justify-center justify-self-start sm:mt-12 lg:mt-0 lg:justify-self-end">
-            <div className="record-card-float group relative w-full origin-left scale-[0.82] rounded-2xl border border-white/15 bg-[linear-gradient(145deg,rgba(255,255,255,0.18),rgba(255,255,255,0.07))] p-1.5 shadow-[0_28px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-white/30 hover:bg-white/15 sm:p-4 lg:scale-100">
+          <div className="flex w-full max-w-[560px] items-center justify-center justify-self-center lg:justify-self-end">
+            <div className="record-card-float group relative w-full rounded-2xl border border-white/15 bg-[linear-gradient(145deg,rgba(255,255,255,0.18),rgba(255,255,255,0.07))] p-2 shadow-[0_28px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-white/30 hover:bg-white/15 sm:p-4">
               <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl">
                 <div className="record-card-shine absolute inset-y-0 -left-2/3 w-1/2 bg-gradient-to-r from-transparent via-white/18 to-transparent" />
               </div>

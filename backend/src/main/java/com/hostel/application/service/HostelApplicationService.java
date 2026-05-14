@@ -2,7 +2,9 @@ package com.hostel.application.service;
 
 import com.hostel.application.dto.HostelApplicationRequest;
 import com.hostel.application.dto.HostelApplicationResponse;
+import com.hostel.application.dto.RoomAllotmentRequest;
 import com.hostel.application.entity.HostelApplication;
+import com.hostel.application.enums.ApplicationStatus;
 import com.hostel.application.enums.Gender;
 import com.hostel.application.exception.DuplicateResourceException;
 import com.hostel.application.exception.ResourceNotFoundException;
@@ -21,9 +23,10 @@ public class HostelApplicationService {
 
     public HostelApplicationResponse create(HostelApplicationRequest request) {
         if (repository.existsByRegisterNumberIgnoreCase(request.registerNumber())) {
-            throw new DuplicateResourceException("This register number has already submitted hostel details");
+            throw new DuplicateResourceException("Register number already exists");
         }
         HostelApplication entity = toEntity(new HostelApplication(), request);
+        entity.setStatus(ApplicationStatus.PENDING);
         return toResponse(repository.save(entity));
     }
 
@@ -37,9 +40,31 @@ public class HostelApplicationService {
 
     public HostelApplicationResponse update(Long id, HostelApplicationRequest request) {
         if (repository.existsByRegisterNumberIgnoreCaseAndIdNot(request.registerNumber(), id)) {
-            throw new DuplicateResourceException("This register number is already used by another student record");
+            throw new DuplicateResourceException("Register number already exists");
         }
         HostelApplication entity = toEntity(get(id), request);
+        return toResponse(repository.save(entity));
+    }
+
+    public void delete(Long id) {
+        repository.delete(get(id));
+    }
+
+    public HostelApplicationResponse approve(Long id) {
+        HostelApplication entity = get(id);
+        entity.setStatus(ApplicationStatus.APPROVED);
+        return toResponse(repository.save(entity));
+    }
+
+    public HostelApplicationResponse reject(Long id) {
+        HostelApplication entity = get(id);
+        entity.setStatus(ApplicationStatus.REJECTED);
+        return toResponse(repository.save(entity));
+    }
+
+    public HostelApplicationResponse allotRoom(Long id, RoomAllotmentRequest request) {
+        HostelApplication entity = get(id);
+        entity.setRoomNo(request.roomNo().trim());
         return toResponse(repository.save(entity));
     }
 
@@ -50,17 +75,19 @@ public class HostelApplicationService {
         return repository.search(keyword.trim()).stream().map(this::toResponse).toList();
     }
 
-    public List<HostelApplicationResponse> filter(Gender gender, String course) {
+    public List<HostelApplicationResponse> filter(ApplicationStatus status, Gender gender, String course) {
         String normalizedCourse = course == null || course.isBlank() ? null : course.trim();
-        return repository.filter(gender, normalizedCourse).stream().map(this::toResponse).toList();
+        return repository.filter(status, gender, normalizedCourse).stream().map(this::toResponse).toList();
     }
 
     public Map<String, Long> stats() {
         Map<String, Long> stats = new LinkedHashMap<>();
         stats.put("totalApplications", repository.count());
+        stats.put("pendingApplications", repository.countByStatus(ApplicationStatus.PENDING));
+        stats.put("approvedApplications", repository.countByStatus(ApplicationStatus.APPROVED));
+        stats.put("rejectedApplications", repository.countByStatus(ApplicationStatus.REJECTED));
         stats.put("totalMale", repository.countByGender(Gender.MALE));
         stats.put("totalFemale", repository.countByGender(Gender.FEMALE));
-        stats.put("totalOther", repository.countByGender(Gender.OTHER));
         return stats;
     }
 
@@ -97,6 +124,7 @@ public class HostelApplicationService {
                 h.getDateOfJoining(), h.getDateOfBirth(), h.getGender(), h.getCourse(), h.getRegisterNumber(),
                 h.getStudentMobileNo(), h.getResidenceAddress(), h.getPermanentAddress(), h.getLocalGuardianName(),
                 h.getLocalGuardianContactNo(), h.getLocalGuardianAddress(), h.getHostelName(), h.getFloorNo(),
-                h.getRoomNo(), h.getBedNo(), h.getWardenName(), h.getWardenContactNo(), h.getCreatedAt(), h.getUpdatedAt());
+                h.getRoomNo(), h.getBedNo(), h.getWardenName(), h.getWardenContactNo(), h.getStatus(),
+                h.getCreatedAt(), h.getUpdatedAt());
     }
 }

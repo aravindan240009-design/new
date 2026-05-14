@@ -1,4 +1,5 @@
 export type Gender = 'MALE' | 'FEMALE' | 'OTHER';
+export type ApplicationStatus = 'PENDING' | 'APPROVED' | 'REJECTED';
 
 export interface HostelApplication {
   id: number;
@@ -22,6 +23,7 @@ export interface HostelApplication {
   bedNo?: string;
   wardenName?: string;
   wardenContactNo?: string;
+  status: ApplicationStatus;
   createdAt: string;
   updatedAt: string;
 }
@@ -57,7 +59,9 @@ export interface ApiResponse<T> {
 
 export interface Stats {
   totalApplications: number;
+  pendingApplications: number;
+  approvedApplications: number;
+  rejectedApplications: number;
   totalMale: number;
   totalFemale: number;
-  totalOther: number;
 }
