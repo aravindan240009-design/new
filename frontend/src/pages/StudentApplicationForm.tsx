@@ -62,7 +62,6 @@ export default function StudentApplicationForm() {
         <main className="mx-auto max-w-5xl">
         <Link to="/" className="mb-4 inline-flex items-center gap-2 text-sm font-semibold text-royal"><ArrowLeft className="h-4 w-4" />Back</Link>
         <form onSubmit={handleSubmit(onSubmit)} className="panel relative overflow-hidden bg-slate-50 p-4 sm:p-6 md:p-8">
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none [background-image:linear-gradient(rgba(15,37,68,1)_1px,transparent_1px),linear-gradient(90deg,rgba(15,37,68,1)_1px,transparent_1px)] [background-size:48px_48px]" />
           {loading && (
             <div className="absolute inset-0 z-20 flex items-center justify-center bg-white/85 px-4 backdrop-blur-sm">
               <div className="w-full max-w-sm rounded-lg border border-blue-100 bg-white p-6 text-center shadow-[0_24px_80px_rgba(15,37,68,0.18)]">

@@ -5,7 +5,6 @@ export default function LandingPage() {
     <main className="min-h-screen overflow-x-hidden bg-navy text-white">
       <section className="relative isolate flex min-h-screen flex-col overflow-hidden pb-6 sm:pb-8">
         <div className="absolute inset-0 bg-[linear-gradient(135deg,#0f2544_0%,#143a68_52%,#0b1b33_100%)]" />
-        <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:64px_64px]" />
         
         <header className="relative z-10 w-full">
           <div className="page-shell flex min-h-[84px] items-center justify-between gap-4 py-4">
