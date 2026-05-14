@@ -49,7 +49,8 @@ export default function StudentApplicationForm() {
       toast.success('Hostel details saved successfully');
       navigate('/success', { state: { registerNumber: saved.registerNumber } });
     } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Submission failed');
+      const message = error.response?.data?.message || error.message || 'Submission failed';
+      toast.error(message === 'Network Error' ? 'Cannot reach server. Please try again in a minute.' : message);
     } finally {
       setLoading(false);
     }
