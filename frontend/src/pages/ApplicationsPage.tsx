@@ -62,19 +62,20 @@ export default function ApplicationsPage() {
       header: 'Actions',
       cell: ({ row }) => {
         const app = row.original;
+        const actionButtonClass = 'inline-flex min-h-8 items-center justify-center rounded-lg border border-slate-200 px-2 text-[10px] font-bold transition hover:-translate-y-0.5 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-royal/25';
         return (
-          <div className="flex min-w-[520px] flex-wrap items-center gap-2">
-            <Link className="rounded-md bg-blue-50 px-2 py-1 text-[10px] font-bold text-royal transition hover:bg-blue-100 sm:px-3 sm:py-1.5 sm:text-xs" to={`/admin/applications/${app.id}`}>View</Link>
-            <Link className="rounded-md border border-slate-200 px-2 py-1 text-[10px] font-bold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 sm:px-3 sm:py-1.5 sm:text-xs" to={`/admin/applications/${app.id}/edit`}>Edit</Link>
-            <button className="rounded-md border border-green-200 px-2 py-1 text-[10px] font-bold text-green-700 transition hover:bg-green-50 sm:px-3 sm:py-1.5 sm:text-xs" onClick={() => action(() => approveApplication(app.id), 'Record approved')}>Approve</button>
-            <button className="rounded-md border border-red-200 px-2 py-1 text-[10px] font-bold text-red-700 transition hover:bg-red-50 sm:px-3 sm:py-1.5 sm:text-xs" onClick={() => action(() => rejectApplication(app.id), 'Record rejected')}>Reject</button>
-            <button className="rounded-md border border-slate-200 px-2 py-1 text-[10px] font-bold text-navy transition hover:bg-slate-50 sm:px-3 sm:py-1.5 sm:text-xs" onClick={() => {
+          <div className="grid w-[360px] grid-cols-4 gap-1.5">
+            <Link className={`${actionButtonClass} border-blue-100 bg-blue-50 text-royal hover:bg-blue-100`} to={`/admin/applications/${app.id}`}>View</Link>
+            <Link className={`${actionButtonClass} text-slate-700`} to={`/admin/applications/${app.id}/edit`}>Edit</Link>
+            <button className={`${actionButtonClass} border-green-200 text-green-700 hover:bg-green-50`} onClick={() => action(() => approveApplication(app.id), 'Record approved')}>Approve</button>
+            <button className={`${actionButtonClass} border-red-200 text-red-700 hover:bg-red-50`} onClick={() => action(() => rejectApplication(app.id), 'Record rejected')}>Reject</button>
+            <button className={`${actionButtonClass} text-navy`} onClick={() => {
               const roomNo = window.prompt('Enter room number', app.roomNo || '');
               if (roomNo) action(() => assignRoom(app.id, roomNo), 'Room updated');
             }}>Room</button>
-            <button className="rounded-md border border-slate-200 px-2 py-1 text-[10px] font-bold text-slate-700 transition hover:bg-slate-50 sm:px-3 sm:py-1.5 sm:text-xs" onClick={() => printApplication(app)}>Print</button>
-            <button className="rounded-md border border-slate-200 px-2 py-1 text-[10px] font-bold text-slate-700 transition hover:bg-slate-50 sm:px-3 sm:py-1.5 sm:text-xs" onClick={() => downloadApplicationPdf(app)}>PDF</button>
-            <button className="rounded-md border border-red-200 px-2 py-1 text-[10px] font-bold text-red-700 transition hover:bg-red-50 sm:px-3 sm:py-1.5 sm:text-xs" onClick={() => setDeleteId(app.id)}>Delete</button>
+            <button className={`${actionButtonClass} text-slate-700`} onClick={() => printApplication(app)}>Print</button>
+            <button className={`${actionButtonClass} text-slate-700`} onClick={() => downloadApplicationPdf(app)}>PDF</button>
+            <button className={`${actionButtonClass} border-red-200 text-red-700 hover:bg-red-50`} onClick={() => setDeleteId(app.id)}>Delete</button>
           </div>
         );
       },
@@ -147,12 +148,17 @@ export default function ApplicationsPage() {
         </div>
         {loading ? <Loading /> : rows.length === 0 ? <EmptyState /> : (
           <div className="overflow-x-auto custom-scrollbar">
-            <table className="min-w-[1180px] w-full text-left text-sm">
+            <table className="min-w-[1420px] w-full text-left text-sm">
               <thead className="bg-slate-50 text-slate-600">
                 {table.getHeaderGroups().map((group) => (
                   <tr key={group.id}>
                     {group.headers.map((header) => (
-                      <th key={header.id} className="whitespace-nowrap px-5 py-4 text-xs uppercase tracking-wide">
+                      <th
+                        key={header.id}
+                        className={`whitespace-nowrap px-5 py-4 text-xs uppercase tracking-wide ${
+                          header.id === 'actions' ? 'sticky right-0 z-20 bg-slate-50 text-center shadow-[-12px_0_24px_rgba(15,37,68,0.08)]' : ''
+                        }`}
+                      >
                         <button className="font-bold" onClick={header.column.getToggleSortingHandler()}>
                           {flexRender(header.column.columnDef.header, header.getContext())}
                         </button>
@@ -165,7 +171,16 @@ export default function ApplicationsPage() {
                 {table.getRowModel().rows.map((row) => (
                   <tr key={row.id} className="group border-t border-slate-100 transition duration-200 hover:bg-blue-50/50">
                     {row.getVisibleCells().map((cell) => (
-                      <td key={cell.id} className="whitespace-nowrap px-5 py-4 align-middle">{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
+                      <td
+                        key={cell.id}
+                        className={`whitespace-nowrap px-5 py-4 align-middle ${
+                          cell.column.id === 'actions'
+                            ? 'sticky right-0 z-10 bg-white shadow-[-12px_0_24px_rgba(15,37,68,0.08)] transition-colors group-hover:bg-blue-50'
+                            : ''
+                        }`}
+                      >
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      </td>
                     ))}
                   </tr>
                 ))}
