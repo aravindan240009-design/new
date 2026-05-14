@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
 import AdminLayout from './components/AdminLayout';
 import ProtectedRoute from './routes/ProtectedRoute';
 import LandingPage from './pages/LandingPage';
@@ -11,6 +12,19 @@ import ApplicationDetailsPage from './pages/ApplicationDetailsPage';
 import EditApplicationPage from './pages/EditApplicationPage';
 
 export default function App() {
+  useEffect(() => {
+    document.documentElement.lang = 'en';
+    document.title = 'Hostel Detail Submission System';
+
+    let viewport = document.querySelector<HTMLMetaElement>('meta[name="viewport"]');
+    if (!viewport) {
+      viewport = document.createElement('meta');
+      viewport.name = 'viewport';
+      document.head.appendChild(viewport);
+    }
+    viewport.content = 'width=device-width, initial-scale=1.0';
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
