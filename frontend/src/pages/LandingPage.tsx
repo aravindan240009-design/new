@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 export default function LandingPage() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-navy text-white">
-      <section className="relative isolate flex min-h-screen flex-col overflow-hidden pb-10">
+      <section className="relative isolate flex min-h-screen flex-col overflow-hidden pb-6 sm:pb-8">
         <div className="absolute inset-0 bg-[linear-gradient(135deg,#0f2544_0%,#143a68_52%,#0b1b33_100%)]" />
         <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:64px_64px]" />
         
         <div className="relative z-10 w-full">
-          <div className="page-shell flex items-center justify-between py-4 sm:py-6">
+          <div className="page-shell flex items-center justify-between py-4 sm:py-5">
             <p className="truncate text-base font-bold sm:text-lg">Hostel Joining System</p>
             <Link
               to="/admin/login"
@@ -19,7 +19,7 @@ export default function LandingPage() {
           </div>
         </div>
 
-        <div className="page-shell relative grid flex-1 items-center gap-8 py-8 sm:py-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-12 xl:gap-16">
+        <div className="page-shell relative grid flex-1 items-center gap-8 py-6 sm:py-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10 xl:gap-14">
           <div className="flex flex-col justify-center text-left">
             <div className="mb-3 inline-flex w-fit rounded-md bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-blue-50 ring-1 ring-white/15 sm:mb-6 sm:px-4 sm:py-2 sm:text-sm sm:normal-case sm:tracking-normal">
               College Hostel Office
@@ -36,8 +36,8 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="flex w-full max-w-[560px] items-center justify-center justify-self-center lg:justify-self-end">
-            <div className="record-card-float group relative w-full rounded-2xl border border-white/15 bg-[linear-gradient(145deg,rgba(255,255,255,0.18),rgba(255,255,255,0.07))] p-2 shadow-[0_28px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-white/30 hover:bg-white/15 sm:p-4">
+          <div className="hero-card-scale flex w-full max-w-[520px] items-center justify-center justify-self-center lg:justify-self-end">
+            <div className="record-card-float group relative w-full rounded-2xl border border-white/15 bg-[linear-gradient(145deg,rgba(255,255,255,0.18),rgba(255,255,255,0.07))] p-2 shadow-[0_28px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-white/30 hover:bg-white/15 sm:p-3">
               <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl">
                 <div className="record-card-shine absolute inset-y-0 -left-2/3 w-1/2 bg-gradient-to-r from-transparent via-white/18 to-transparent" />
               </div>
@@ -45,7 +45,7 @@ export default function LandingPage() {
               <div className="relative overflow-hidden rounded-xl bg-white text-navy shadow-[0_22px_65px_rgba(0,0,0,0.20)] transition-shadow duration-500 group-hover:shadow-[0_30px_90px_rgba(0,0,0,0.28)]">
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-royal via-blue-400 to-navy" />
                 
-                <div className="flex items-center justify-between gap-3 border-b border-slate-100 px-4 pb-3 pt-5 sm:px-6 sm:pb-4 sm:pt-6">
+                <div className="flex items-center justify-between gap-3 border-b border-slate-100 px-4 pb-3 pt-5 sm:px-5 sm:pb-3 sm:pt-5">
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-wider text-royal">Office Record</p>
                     <p className="mt-0.5 text-xl font-bold sm:text-2xl">Hostel Details</p>
@@ -56,20 +56,20 @@ export default function LandingPage() {
                   </span>
                 </div>
 
-                <div className="space-y-3 p-4 sm:space-y-4 sm:p-6">
+                <div className="space-y-3 p-4 sm:space-y-3 sm:p-5">
                   <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
                     <PreviewField label="Student name" width="w-4/5" />
                     <PreviewField label="Register no" width="w-3/4" />
                   </div>
                   <PreviewField label="Course and admission date" width="w-2/3" />
                   
-                  <div className="hidden rounded-xl border border-slate-200 bg-slate-50/50 p-4 shadow-inner sm:block sm:p-5">
-                    <div className="mb-4 flex items-center justify-between">
+                  <div className="hidden rounded-xl border border-slate-200 bg-slate-50/50 p-4 shadow-inner sm:block">
+                    <div className="mb-3 flex items-center justify-between">
                       <span className="text-[10px] font-bold text-royal uppercase tracking-wider">Record Data Modules</span>
                     </div>
                     <div className="grid grid-cols-2 gap-3 sm:gap-4">
                       {['Student', 'Parent', 'Address', 'Guardian'].map((item) => (
-                        <div key={item} className="flex items-center gap-3 rounded-lg bg-white p-2.5 shadow-sm ring-1 ring-slate-200/50 transition-transform duration-300 group-hover:scale-[1.02]">
+                        <div key={item} className="flex items-center gap-3 rounded-lg bg-white p-2 shadow-sm ring-1 ring-slate-200/50 transition-transform duration-300 group-hover:scale-[1.02]">
                           <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-green-50 text-green-600">
                             <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"/>
@@ -81,7 +81,7 @@ export default function LandingPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between gap-4 rounded-xl bg-navy p-4 text-white shadow-lg sm:p-5">
+                  <div className="flex items-center justify-between gap-4 rounded-xl bg-navy p-4 text-white shadow-lg">
                     <div className="flex-1">
                     <p className="mt-0.5 text-sm font-bold sm:text-base">Unique Register Record</p>
                     </div>
@@ -104,7 +104,7 @@ export default function LandingPage() {
 
 function PreviewField({ label, width }: { label: string; width: string }) {
   return (
-    <div className="rounded-lg border border-slate-200 bg-white p-2.5 transition duration-300 hover:border-blue-200 hover:bg-blue-50/30 sm:p-4">
+    <div className="rounded-lg border border-slate-200 bg-white p-2.5 transition duration-300 hover:border-blue-200 hover:bg-blue-50/30 sm:p-3.5">
       <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400 sm:text-xs">{label}</p>
       <div className={`record-skeleton mt-2 h-2.5 ${width} rounded-full bg-slate-100 sm:mt-3 sm:h-3`} />
     </div>
