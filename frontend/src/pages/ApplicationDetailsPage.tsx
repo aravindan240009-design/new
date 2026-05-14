@@ -10,7 +10,7 @@ import { downloadElementPdf, printApplication } from '../utils/printApplication'
 
 function Row({ label, value }: { label: string; value?: string }) {
   return (
-    <div className="grid gap-1 border-b border-slate-100 py-2.5 md:grid-cols-[240px_1fr]">
+    <div className="flex flex-col gap-1 border-b border-slate-100 py-2.5">
       <dt className="text-xs font-bold uppercase tracking-wider text-slate-400">{label}</dt>
       <dd className="break-words text-sm font-bold text-navy">{value || 'Not provided'}</dd>
     </div>
@@ -42,7 +42,7 @@ export default function ApplicationDetailsPage() {
     <div className="space-y-5 page-fade">
       <div className="flex flex-col justify-between gap-3 md:flex-row md:items-center">
         <Link to="/admin/applications" className="inline-flex items-center gap-2 text-sm font-semibold text-royal"><ArrowLeft className="h-4 w-4" />Back</Link>
-        <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
+        <div className="flex flex-wrap gap-2">
           <Link className="btn-secondary" to={`/admin/applications/${application.id}/edit`}><Edit className="h-4 w-4" />Edit</Link>
           <button className="btn-secondary" onClick={() => printApplication(application)}><Printer className="h-4 w-4" />Print</button>
           <button className="btn-secondary" onClick={() => downloadElementPdf('application-detail', `${application.registerNumber}.pdf`)}><Download className="h-4 w-4" />PDF</button>
@@ -70,7 +70,7 @@ export default function ApplicationDetailsPage() {
             <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Room: <span className="text-navy">{application.roomNo || 'Not provided'}</span></p>
           </div>
         </div>
-        <dl className="mt-5 grid gap-x-8 md:grid-cols-2">
+        <dl className="mt-5 flex flex-col gap-4">
           <Row label="Student Mobile" value={application.studentMobileNo} />
           <Row label="Gender" value={application.gender} />
           <Row label="Date of Birth" value={application.dateOfBirth} />

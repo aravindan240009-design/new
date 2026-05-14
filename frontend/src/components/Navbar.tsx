@@ -26,7 +26,7 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 ring-1 ring-blue-100">
               <Building2 className="h-5 w-5 text-royal sm:h-6 sm:w-6" />
             </span>
-            <span className="truncate text-sm sm:text-base">Hostel Joining System</span>
+            <span className="truncate text-sm sm:text-base">Hostel Detail Submission</span>
           </Link>
         </div>
         {isAuthenticated() ? (

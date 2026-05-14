@@ -107,7 +107,7 @@ export default function ApplicationsPage() {
       <PageHeader
         eyebrow="Hostel Office"
         title="Saved Student Records"
-        description="Search, filter, review, edit, approve, reject, print, and export hostel joining records."
+        description="Search, filter, review, edit, approve, reject, print, and export hostel detail submission records."
         action={<button className="btn-secondary w-full bg-white text-navy sm:w-auto" onClick={() => exportApplicationsCsv(rows)}><Download className="h-4 w-4" />Export CSV</button>}
       />
 

@@ -36,7 +36,7 @@ export default function AdminLogin() {
           <div className="relative z-10">
             <p className="text-xs font-bold uppercase tracking-widest text-blue-100">Hostel office access</p>
             <h1 className="mt-4 max-w-2xl text-5xl font-bold leading-tight tracking-tight xl:text-6xl">Staff Record Dashboard</h1>
-            <p className="mt-5 max-w-md text-base leading-7 text-blue-100/80">Secure sign-in for hostel office staff to view and manage saved student joining details.</p>
+            <p className="mt-5 max-w-md text-base leading-7 text-blue-100/80">Secure sign-in for hostel office staff to view and manage saved student detail submission records.</p>
           </div>
           <div className="absolute bottom-10 left-12 right-12 z-10 flex items-center gap-4 text-sm font-semibold text-blue-100/55">
             <span>College Hostel Office</span>
@@ -47,7 +47,7 @@ export default function AdminLogin() {
 
         <section className="flex items-center justify-center px-4 py-8 sm:px-6">
           <form onSubmit={submit} className="w-full max-w-md rounded-xl border border-slate-200 bg-white p-6 shadow-[0_24px_75px_rgba(15,37,68,0.10)] sm:p-8 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none">
-            <p className="text-xs font-bold uppercase tracking-widest text-royal">Hostel Joining System</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-royal">Hostel Detail Submission System</p>
             <h1 className="mt-3 text-3xl font-bold text-navy">Staff Login</h1>
             <p className="mt-2 text-sm leading-6 text-slate-500">Enter your staff credentials to access saved hostel records.</p>
 

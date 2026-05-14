@@ -29,7 +29,7 @@ export default function AdminDashboard() {
         <div className="relative">
           <p className="text-xs font-bold uppercase tracking-wide text-blue-100">Hostel Office</p>
           <h1 className="mt-1 text-2xl font-bold leading-tight sm:text-3xl">Records Dashboard</h1>
-          <p className="mt-2 max-w-3xl text-sm leading-6 text-blue-100">View saved joining records, manage approval status, and keep hostel office data organized.</p>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-blue-100">View saved detail submission records, manage approval status, and keep hostel office data organized.</p>
         </div>
         <div className="relative mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
           <StatCard title="Total Records" value={stats.totalApplications} accent="bg-blue-300" />
