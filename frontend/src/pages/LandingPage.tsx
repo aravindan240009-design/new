@@ -7,19 +7,19 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-[linear-gradient(135deg,#0f2544_0%,#143a68_52%,#0b1b33_100%)]" />
         <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:64px_64px]" />
         
-        <div className="relative z-10 w-full">
-          <div className="page-shell flex items-center justify-between py-4 sm:py-5">
-            <p className="truncate text-base font-bold sm:text-lg">Hostel Joining System</p>
+        <header className="relative z-10 w-full">
+          <div className="page-shell flex min-h-[84px] items-center justify-between gap-4 py-4">
+            <p className="truncate text-base font-bold leading-none sm:text-lg">Hostel Joining System</p>
             <Link
               to="/admin/login"
-              className="shrink-0 rounded-md border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold text-blue-50 transition hover:border-white/40 hover:bg-white hover:text-navy sm:px-6 sm:py-2.5 sm:text-base"
+              className="inline-flex min-h-12 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-white/10 px-4 text-sm font-semibold text-blue-50 shadow-sm transition hover:border-white/40 hover:bg-white hover:text-navy sm:px-6 sm:text-base"
             >
               Staff Login
             </Link>
           </div>
-        </div>
+        </header>
 
-        <div className="page-shell relative grid flex-1 items-center gap-8 py-6 sm:py-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10 xl:gap-14">
+        <div className="page-shell relative grid flex-1 items-center gap-8 py-4 sm:py-6 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10 xl:gap-14">
           <div className="flex flex-col justify-center text-left">
             <div className="mb-3 inline-flex w-fit rounded-md bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-blue-50 ring-1 ring-white/15 sm:mb-6 sm:px-4 sm:py-2 sm:text-sm sm:normal-case sm:tracking-normal">
               College Hostel Office
@@ -37,7 +37,7 @@ export default function LandingPage() {
           </div>
 
           <div className="hero-card-scale flex w-full max-w-[520px] items-center justify-center justify-self-center lg:justify-self-end">
-            <div className="record-card-float group relative w-full rounded-2xl border border-white/15 bg-[linear-gradient(145deg,rgba(255,255,255,0.18),rgba(255,255,255,0.07))] p-2 shadow-[0_28px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-white/30 hover:bg-white/15 sm:p-3">
+            <div className="group relative w-full rounded-2xl border border-white/15 bg-[linear-gradient(145deg,rgba(255,255,255,0.18),rgba(255,255,255,0.07))] p-2 shadow-[0_28px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl transition-all duration-500 hover:border-white/30 hover:bg-white/15 sm:p-3">
               <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl">
                 <div className="record-card-shine absolute inset-y-0 -left-2/3 w-1/2 bg-gradient-to-r from-transparent via-white/18 to-transparent" />
               </div>

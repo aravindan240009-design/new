@@ -166,10 +166,6 @@ label {
   }
 }
 
-.record-card-float {
-  animation: record-card-float 9s ease-in-out infinite;
-}
-
 .record-card-shine {
   animation: record-card-shine 8s ease-in-out infinite;
 }
