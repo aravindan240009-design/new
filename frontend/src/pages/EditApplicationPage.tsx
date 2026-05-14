@@ -38,7 +38,12 @@ export default function EditApplicationPage() {
         localGuardianName: app.localGuardianName,
         localGuardianContactNo: app.localGuardianContactNo,
         localGuardianAddress: app.localGuardianAddress,
-        personalHistory: app.personalHistory || '',
+        hostelName: app.hostelName || '',
+        floorNo: app.floorNo || '',
+        roomNo: app.roomNo || '',
+        bedNo: app.bedNo || '',
+        wardenName: app.wardenName || '',
+        wardenContactNo: app.wardenContactNo || '',
       });
       setLoading(false);
     });

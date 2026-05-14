@@ -20,6 +20,11 @@ public record HostelApplicationRequest(
         @NotBlank(message = "Local guardian name is required") String localGuardianName,
         @NotBlank(message = "Local guardian contact number is required") @Pattern(regexp = "\\d{10}", message = "Local guardian contact number must be exactly 10 digits") String localGuardianContactNo,
         @NotBlank(message = "Local guardian address is required") String localGuardianAddress,
-        String personalHistory
+        @NotBlank(message = "Hostel name is required") String hostelName,
+        @NotBlank(message = "Floor number is required") String floorNo,
+        @NotBlank(message = "Room number is required") String roomNo,
+        String bedNo,
+        @NotBlank(message = "Warden name is required") String wardenName,
+        @Pattern(regexp = "^$|\\d{10}", message = "Warden contact number must be exactly 10 digits") String wardenContactNo
 ) {
 }

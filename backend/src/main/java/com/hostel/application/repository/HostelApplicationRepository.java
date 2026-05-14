@@ -23,6 +23,10 @@ public interface HostelApplicationRepository extends JpaRepository<HostelApplica
                or lower(h.course) like lower(concat('%', :keyword, '%'))
                or lower(h.studentMobileNo) like lower(concat('%', :keyword, '%'))
                or lower(h.parentName) like lower(concat('%', :keyword, '%'))
+               or lower(h.hostelName) like lower(concat('%', :keyword, '%'))
+               or lower(h.floorNo) like lower(concat('%', :keyword, '%'))
+               or lower(h.roomNo) like lower(concat('%', :keyword, '%'))
+               or lower(h.wardenName) like lower(concat('%', :keyword, '%'))
             order by h.createdAt desc
             """)
     List<HostelApplication> search(@Param("keyword") String keyword);

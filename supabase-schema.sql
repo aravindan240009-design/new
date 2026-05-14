@@ -14,12 +14,23 @@ create table if not exists hostel_applications (
   local_guardian_name varchar(255) not null,
   local_guardian_contact_no varchar(10) not null check (local_guardian_contact_no ~ '^[0-9]{10}$'),
   local_guardian_address text not null,
-  personal_history text,
-  status varchar(20) not null default 'PENDING' check (status in ('PENDING', 'APPROVED', 'REJECTED')),
+  hostel_name varchar(255),
+  floor_no varchar(80),
   room_no varchar(255),
+  bed_no varchar(80),
+  warden_name varchar(255),
+  warden_contact_no varchar(10) check (warden_contact_no is null or warden_contact_no ~ '^[0-9]{10}$'),
+  status varchar(20) not null default 'PENDING' check (status in ('PENDING', 'APPROVED', 'REJECTED')),
   created_at timestamp not null default current_timestamp,
   updated_at timestamp not null default current_timestamp
 );
+
+alter table hostel_applications add column if not exists hostel_name varchar(255);
+alter table hostel_applications add column if not exists floor_no varchar(80);
+alter table hostel_applications add column if not exists room_no varchar(255);
+alter table hostel_applications add column if not exists bed_no varchar(80);
+alter table hostel_applications add column if not exists warden_name varchar(255);
+alter table hostel_applications add column if not exists warden_contact_no varchar(10);
 
 create index if not exists idx_hostel_applications_status on hostel_applications(status);
 create index if not exists idx_hostel_applications_gender on hostel_applications(gender);

@@ -1,7 +1,7 @@
 import { HostelApplication } from '../types/application';
 
 export const exportApplicationsCsv = (rows: HostelApplication[]) => {
-  const headers = ['Student Name', 'Register Number', 'Course', 'Gender', 'Student Mobile', 'Parent Name', 'Parent Contact', 'Status', 'Room No', 'Date of Joining'];
+  const headers = ['Student Name', 'Register Number', 'Course', 'Gender', 'Student Mobile', 'Parent Name', 'Parent Contact', 'Hostel Name', 'Floor No', 'Room No', 'Bed No', 'Warden Name', 'Warden Contact', 'Status', 'Date of Joining'];
   const values = rows.map((row) => [
     row.studentName,
     row.registerNumber,
@@ -10,8 +10,13 @@ export const exportApplicationsCsv = (rows: HostelApplication[]) => {
     row.studentMobileNo,
     row.parentName,
     row.parentContactNo,
-    row.status,
+    row.hostelName || '',
+    row.floorNo || '',
     row.roomNo || '',
+    row.bedNo || '',
+    row.wardenName || '',
+    row.wardenContactNo || '',
+    row.status,
     row.dateOfJoining,
   ]);
   const csv = [headers, ...values]

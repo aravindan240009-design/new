@@ -25,9 +25,13 @@ export const printApplication = (application: HostelApplication) => {
         'Local Guardian': application.localGuardianName,
         'Guardian Contact': application.localGuardianContactNo,
         'Guardian Address': application.localGuardianAddress,
-        'Personal History': application.personalHistory || 'None',
+        'Hostel Name': application.hostelName || 'Not provided',
+        'Floor No': application.floorNo || 'Not provided',
+        'Room No': application.roomNo || 'Not provided',
+        'Bed No': application.bedNo || 'Not assigned',
+        'Warden Name': application.wardenName || 'Not provided',
+        'Warden Contact': application.wardenContactNo || 'Not provided',
         Status: application.status,
-        'Room No': application.roomNo || 'Not allotted',
       }).map(([key, value]) => `<tr><td>${escapeHtml(key)}</td><td>${escapeHtml(String(value))}</td></tr>`).join('')}
     </table></body></html>`;
   const win = window.open('', '_blank');
@@ -66,9 +70,13 @@ export const downloadApplicationPdf = (application: HostelApplication) => {
     ['Local Guardian', application.localGuardianName],
     ['Guardian Contact', application.localGuardianContactNo],
     ['Guardian Address', application.localGuardianAddress],
-    ['Personal History', application.personalHistory || 'None'],
+    ['Hostel Name', application.hostelName || 'Not provided'],
+    ['Floor No', application.floorNo || 'Not provided'],
+    ['Room No', application.roomNo || 'Not provided'],
+    ['Bed No', application.bedNo || 'Not assigned'],
+    ['Warden Name', application.wardenName || 'Not provided'],
+    ['Warden Contact', application.wardenContactNo || 'Not provided'],
     ['Status', application.status],
-    ['Room No', application.roomNo || 'Not allotted'],
   ];
 
   pdf.setFontSize(16);

@@ -63,14 +63,22 @@ public class HostelApplication {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String localGuardianAddress;
 
-    @Column(columnDefinition = "TEXT")
-    private String personalHistory;
+    private String hostelName;
+
+    private String floorNo;
+
+    private String roomNo;
+
+    private String bedNo;
+
+    private String wardenName;
+
+    @Column(length = 10)
+    private String wardenContactNo;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private ApplicationStatus status = ApplicationStatus.PENDING;
-
-    private String roomNo;
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;

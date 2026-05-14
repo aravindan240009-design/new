@@ -22,9 +22,13 @@ public record HostelApplicationResponse(
         String localGuardianName,
         String localGuardianContactNo,
         String localGuardianAddress,
-        String personalHistory,
-        ApplicationStatus status,
+        String hostelName,
+        String floorNo,
         String roomNo,
+        String bedNo,
+        String wardenName,
+        String wardenContactNo,
+        ApplicationStatus status,
         LocalDateTime createdAt,
         LocalDateTime updatedAt
 ) {

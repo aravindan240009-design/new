@@ -17,7 +17,12 @@ export const emptyApplication: HostelApplicationPayload = {
   localGuardianName: '',
   localGuardianContactNo: '',
   localGuardianAddress: '',
-  personalHistory: '',
+  hostelName: '',
+  floorNo: '',
+  roomNo: '',
+  bedNo: '',
+  wardenName: '',
+  wardenContactNo: '',
 };
 
 function Field({ label, name, register, errors, type = 'text', required = true }: {
@@ -110,10 +115,13 @@ export default function ApplicationFormFields({ register, errors }: {
         </div>
       </Section>
 
-      <Section title="Medical/Personal History">
-        <div className="md:col-span-2">
-          <TextArea label="Personal History / Illness Details" name="personalHistory" register={register} errors={errors} required={false} />
-        </div>
+      <Section title="Hostel Allocation Details">
+        <Field label="Hostel Name" name="hostelName" register={register} errors={errors} />
+        <Field label="Floor No" name="floorNo" register={register} errors={errors} />
+        <Field label="Room No" name="roomNo" register={register} errors={errors} />
+        <Field label="Bed No" name="bedNo" register={register} errors={errors} required={false} />
+        <Field label="Warden Name" name="wardenName" register={register} errors={errors} />
+        <Field label="Warden Contact No" name="wardenContactNo" register={register} errors={errors} required={false} />
       </Section>
     </div>
   );

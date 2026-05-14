@@ -25,7 +25,12 @@ export const applicationSchema = z.object({
   localGuardianName: z.string().min(1, 'Local guardian name is required'),
   localGuardianContactNo: z.string().regex(/^\d{10}$/, 'Local guardian contact number must be exactly 10 digits'),
   localGuardianAddress: z.string().min(1, 'Local guardian address is required'),
-  personalHistory: z.string().optional(),
+  hostelName: z.string().min(1, 'Hostel name is required'),
+  floorNo: z.string().min(1, 'Floor number is required'),
+  roomNo: z.string().min(1, 'Room number is required'),
+  bedNo: z.string().optional(),
+  wardenName: z.string().min(1, 'Warden name is required'),
+  wardenContactNo: z.string().optional().refine((value) => !value || /^\d{10}$/.test(value), 'Warden contact number must be exactly 10 digits'),
 });
 
 export default function StudentApplicationForm() {

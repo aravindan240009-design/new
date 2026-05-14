@@ -66,7 +66,12 @@ export default function ApplicationDetailsPage() {
           <Row label="Local Guardian Name" value={application.localGuardianName} />
           <Row label="Local Guardian Contact No" value={application.localGuardianContactNo} />
           <Row label="Local Guardian Address" value={application.localGuardianAddress} />
-          <Row label="Personal History / Illness Details" value={application.personalHistory || 'None'} />
+          <Row label="Hostel Name" value={application.hostelName} />
+          <Row label="Floor No" value={application.floorNo} />
+          <Row label="Room No" value={application.roomNo} />
+          <Row label="Bed No" value={application.bedNo || 'Not assigned'} />
+          <Row label="Warden Name" value={application.wardenName} />
+          <Row label="Warden Contact No" value={application.wardenContactNo || 'Not provided'} />
         </dl>
       </section>
     </div>

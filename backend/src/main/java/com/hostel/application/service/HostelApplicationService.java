@@ -110,7 +110,12 @@ public class HostelApplicationService {
         entity.setLocalGuardianName(request.localGuardianName().trim());
         entity.setLocalGuardianContactNo(request.localGuardianContactNo());
         entity.setLocalGuardianAddress(request.localGuardianAddress().trim());
-        entity.setPersonalHistory(request.personalHistory());
+        entity.setHostelName(request.hostelName().trim());
+        entity.setFloorNo(request.floorNo().trim());
+        entity.setRoomNo(request.roomNo().trim());
+        entity.setBedNo(request.bedNo() == null ? null : request.bedNo().trim());
+        entity.setWardenName(request.wardenName().trim());
+        entity.setWardenContactNo(request.wardenContactNo() == null || request.wardenContactNo().isBlank() ? null : request.wardenContactNo());
         return entity;
     }
 
@@ -118,7 +123,8 @@ public class HostelApplicationService {
         return new HostelApplicationResponse(h.getId(), h.getStudentName(), h.getParentName(), h.getParentContactNo(),
                 h.getDateOfJoining(), h.getDateOfBirth(), h.getGender(), h.getCourse(), h.getRegisterNumber(),
                 h.getStudentMobileNo(), h.getResidenceAddress(), h.getPermanentAddress(), h.getLocalGuardianName(),
-                h.getLocalGuardianContactNo(), h.getLocalGuardianAddress(), h.getPersonalHistory(), h.getStatus(),
-                h.getRoomNo(), h.getCreatedAt(), h.getUpdatedAt());
+                h.getLocalGuardianContactNo(), h.getLocalGuardianAddress(), h.getHostelName(), h.getFloorNo(),
+                h.getRoomNo(), h.getBedNo(), h.getWardenName(), h.getWardenContactNo(), h.getStatus(),
+                h.getCreatedAt(), h.getUpdatedAt());
     }
 }

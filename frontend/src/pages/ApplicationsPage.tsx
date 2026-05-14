@@ -52,7 +52,9 @@ export default function ApplicationsPage() {
     { accessorKey: 'gender', header: 'Gender' },
     { accessorKey: 'studentMobileNo', header: 'Student mobile' },
     { accessorKey: 'status', header: 'Status', cell: ({ row }) => <StatusBadge status={row.original.status} /> },
-    { accessorKey: 'roomNo', header: 'Room No', cell: ({ row }) => row.original.roomNo || 'Not allotted' },
+    { accessorKey: 'hostelName', header: 'Hostel', cell: ({ row }) => row.original.hostelName || 'Not provided' },
+    { accessorKey: 'floorNo', header: 'Floor', cell: ({ row }) => row.original.floorNo || 'Not provided' },
+    { accessorKey: 'roomNo', header: 'Room No', cell: ({ row }) => row.original.roomNo || 'Not provided' },
     { accessorKey: 'dateOfJoining', header: 'Admission Date' },
     {
       id: 'actions',
@@ -151,7 +153,7 @@ export default function ApplicationsPage() {
                 {table.getHeaderGroups().map((group) => (
                   <tr key={group.id}>
                     {group.headers.map((header) => (
-                      <th key={header.id} className={`whitespace-nowrap px-5 py-4 text-xs uppercase tracking-wide ${['registerNumber', 'course', 'gender', 'studentMobileNo', 'dateOfJoining'].includes(header.id) ? 'hidden lg:table-cell' : ''}`}>
+                      <th key={header.id} className={`whitespace-nowrap px-5 py-4 text-xs uppercase tracking-wide ${['registerNumber', 'course', 'gender', 'studentMobileNo', 'hostelName', 'floorNo', 'dateOfJoining'].includes(header.id) ? 'hidden lg:table-cell' : ''}`}>
                         <button className="font-bold" onClick={header.column.getToggleSortingHandler()}>
                           {flexRender(header.column.columnDef.header, header.getContext())}
                         </button>
@@ -164,7 +166,7 @@ export default function ApplicationsPage() {
                 {table.getRowModel().rows.map((row) => (
                   <tr key={row.id} className="group border-t border-slate-100 transition duration-200 hover:bg-blue-50/50">
                     {row.getVisibleCells().map((cell) => (
-                      <td key={cell.id} className={`whitespace-nowrap px-5 py-4 align-middle ${['registerNumber', 'course', 'gender', 'studentMobileNo', 'dateOfJoining'].includes(cell.column.id) ? 'hidden lg:table-cell' : ''}`}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
+                      <td key={cell.id} className={`whitespace-nowrap px-5 py-4 align-middle ${['registerNumber', 'course', 'gender', 'studentMobileNo', 'hostelName', 'floorNo', 'dateOfJoining'].includes(cell.column.id) ? 'hidden lg:table-cell' : ''}`}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
                     ))}
                   </tr>
                 ))}
